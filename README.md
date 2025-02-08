@@ -1,6 +1,6 @@
 # Sequence Rules Framework
 
-[![codecov](https://codecov.io/gh/neumanns-workshop/sequence_rule_grammar/branch/main/graph/badge.svg)](https://codecov.io/gh/neumanns-workshop/sequence_rule_grammar)
+[![codecov](https://codecov.io/gh/neumanns-workshop/sequence_rule_grammar/branch/develop/graph/badge.svg)](https://codecov.io/gh/neumanns-workshop/sequence_rule_grammar)
 
 A robust, mathematically rigorous framework for sequence rule generation and evaluation. This framework provides:
 
