@@ -2,6 +2,9 @@ from typing import Union
 
 from antlr4 import CommonTokenStream, InputStream, error
 
+from .SequenceRuleLexer import SequenceRuleLexer
+from .SequenceRuleParser import SequenceRuleParser
+from .SequenceRuleVisitor import SequenceRuleVisitor
 from .sequence_ast import (
     AbsolutePosition,
     BooleanValue,
@@ -18,9 +21,6 @@ from .sequence_ast import (
     SimpleRule,
     StringValue,
 )
-from .SequenceRuleLexer import SequenceRuleLexer
-from .SequenceRuleParser import SequenceRuleParser
-from .SequenceRuleVisitor import SequenceRuleVisitor
 
 
 class RuleParseError(Exception):

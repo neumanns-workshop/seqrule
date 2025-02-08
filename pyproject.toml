@@ -39,11 +39,11 @@ select = [
     "B",   # flake8-bugbear
 ]
 
-# Ignore long lines in generated ANTLR files
+# Ignore linting issues in generated ANTLR files
 [tool.ruff.lint.per-file-ignores]
-"sequence_rules/dsl/SequenceRuleLexer.py" = ["E501"]
-"sequence_rules/dsl/SequenceRuleParser.py" = ["E501"]
-"sequence_rules/dsl/SequenceRuleVisitor.py" = ["E501"]
+"sequence_rules/dsl/SequenceRuleLexer.py" = ["E501", "F403", "F405", "E711", "I001"]
+"sequence_rules/dsl/SequenceRuleParser.py" = ["E501", "F403", "F405", "E711", "I001"]
+"sequence_rules/dsl/SequenceRuleVisitor.py" = ["E501", "F403", "F405", "E711", "I001"]
 
 [tool.black]
 line-length = 100
