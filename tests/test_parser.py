@@ -1,5 +1,6 @@
 import pytest
 
+from sequence_rules.dsl.parser import RuleParseError, parse_rule
 from sequence_rules.dsl.sequence_ast import (
     AbsolutePosition,
     ConditionalRule,
@@ -8,7 +9,6 @@ from sequence_rules.dsl.sequence_ast import (
     RelationalOp,
     SimpleRule,
 )
-from sequence_rules.dsl.parser import RuleParseError, parse_rule
 
 
 class TestBasicRules:

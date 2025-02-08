@@ -3,6 +3,7 @@ from sequence_rules.core.evaluator import (
     evaluate_expression,
     evaluate_sequence,
 )
+from sequence_rules.dsl.parser import parse_rule
 from sequence_rules.dsl.sequence_ast import (
     AbsolutePosition,
     BooleanValue,
@@ -19,7 +20,6 @@ from sequence_rules.dsl.sequence_ast import (
     SimpleRule,
     StringValue,
 )
-from sequence_rules.dsl.parser import parse_rule
 
 
 class TestExpressionEvaluation:

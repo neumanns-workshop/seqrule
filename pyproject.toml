@@ -44,6 +44,7 @@ select = [
 "sequence_rules/dsl/SequenceRuleLexer.py" = ["E501", "F403", "F405", "E711", "I001"]
 "sequence_rules/dsl/SequenceRuleParser.py" = ["E501", "F403", "F405", "E711", "I001"]
 "sequence_rules/dsl/SequenceRuleVisitor.py" = ["E501", "F403", "F405", "E711", "I001"]
+"sequence_rules/dsl/SequenceRuleListener.py" = ["E501", "F403", "F405", "E711", "I001"]
 
 [tool.black]
 line-length = 100
