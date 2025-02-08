@@ -21,15 +21,16 @@ jobs:
         pip install uv
         uv venv
         source .venv/bin/activate
+        # Install ANTLR runtime first to ensure correct version
+        uv pip install antlr4-python3-runtime==4.9.3
         uv pip install -e ".[dev]"
     - name: Set up ANTLR
       run: |
         source .venv/bin/activate
-        uv pip install antlr4-tools
         cd sequence_rules/dsl
-        curl -O https://www.antlr.org/download/antlr-4.9.3-complete.jar
+        export CLASSPATH=".:$PWD/antlr-4.9.3-complete.jar:$CLASSPATH"
         rm -f SequenceRule*.py  # Remove any existing generated files
-        antlr4 -Dlanguage=Python3 -visitor SequenceRule.g4
+        java -jar antlr-4.9.3-complete.jar -Dlanguage=Python3 -visitor SequenceRule.g4
         cd ../..
     - name: Run tests with coverage
       run: |
