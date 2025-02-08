@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from enum import Enum, auto
-from typing import Optional, Union, List
+from typing import List, Optional, Union
 
 
 class RelationalOp(Enum):
@@ -27,12 +27,6 @@ class Position:
 class AbsolutePosition(Position):
     """Position from start of sequence (0-based)"""
     index: int
-
-
-@dataclass
-class RelativePosition(Position):
-    """Position relative to current element"""
-    offset: int
 
 
 @dataclass

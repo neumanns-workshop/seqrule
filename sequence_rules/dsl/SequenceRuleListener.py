@@ -1,5 +1,6 @@
 # Generated from SequenceRule.g4 by ANTLR 4.13.2
-from antlr4 import *
+from antlr4.tree.Tree import ParseTreeListener
+
 if "." in __name__:
     from .SequenceRuleParser import SequenceRuleParser
 else:

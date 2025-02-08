@@ -29,4 +29,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Testing infrastructure:
   - Comprehensive test suite with 74% coverage
   - Integration with GitHub Actions and Codecov
-  - Test cases for parsing, evaluation, and error handling 
+  - Test cases for parsing, evaluation, and error handling
+- Added ruff for fast Python linting and code style enforcement
+- Added GitHub Actions workflow for automated testing and linting
+
+### Changed
+- Updated development documentation in README.md with code quality tools 

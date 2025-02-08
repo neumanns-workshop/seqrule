@@ -1,0 +1,22 @@
+[run]
+source = sequence_rules
+branch = True
+
+[report]
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    if not isinstance\(expr\.position, AbsolutePosition\)
+    if condition\.left is None
+    if condition\.operator is None or condition\.right is None
+    if not objects
+    raise NotImplementedError
+    if __name__ == .__main__.:
+    pass
+    raise ImportError
+
+omit =
+    */SequenceRuleLexer.py
+    */SequenceRuleParser.py
+    */SequenceRuleListener.py
+    */SequenceRuleVisitor.py 

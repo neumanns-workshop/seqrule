@@ -179,3 +179,46 @@ Legend:
 ## License
 
 MIT
+
+## Development
+
+### Setup
+
+1. Clone the repository
+2. Install development dependencies:
+   ```bash
+   pip install -e .[dev]
+   ```
+
+### Code Quality
+
+The project uses several tools to maintain code quality:
+
+- **Ruff**: For fast Python linting and code style enforcement
+  ```bash
+  ruff check .
+  ```
+
+- **Black**: For code formatting
+  ```bash
+  black .
+  ```
+
+- **isort**: For import sorting
+  ```bash
+  isort .
+  ```
+
+- **mypy**: For static type checking
+  ```bash
+  mypy .
+  ```
+
+### Testing
+
+Run tests with pytest:
+```bash
+pytest
+```
+
+This will also generate a coverage report.

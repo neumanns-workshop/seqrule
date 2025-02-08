@@ -1,0 +1,20 @@
+sequence_rules/
+├── __init__.py
+├── dsl/
+│   ├── __init__.py
+│   ├── grammar.g4        # ANTLR4 grammar
+│   ├── parser.py         # Parser implementation
+│   └── ast.py           # AST node definitions
+├── core/
+│   ├── __init__.py
+│   ├── rule.py          # Rule representation
+│   ├── normalizer.py    # Rule normalization
+│   └── evaluator.py     # Sequence evaluation
+├── automata/
+│   ├── __init__.py
+│   ├── fsm.py          # FSM implementation
+│   └── converter.py    # Rule to FSM conversion
+└── logic/
+    ├── __init__.py
+    ├── prolog.py       # Prolog integration
+    └── solver.py       # Z3 constraint solving 

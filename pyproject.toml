@@ -5,12 +5,12 @@ description = "A robust framework for sequence rule generation and evaluation"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "antlr4-python3-runtime",  # For DSL parsing
-    "sympy",                   # For rule normalization
-    "networkx",                # For automata/FSM
-    "z3-solver",              # For constraint solving
-    "scikit-learn",           # For heuristics and scoring
-    "pyswip",                 # Python-Prolog bridge
+    "antlr4-python3-runtime", # For DSL parsing
+    "sympy", # For rule normalization
+    "networkx", # For automata/FSM
+    "z3-solver", # For constraint solving
+    "scikit-learn", # For heuristics and scoring
+    "pyswip", # Python-Prolog bridge
 ]
 
 [project.optional-dependencies]
@@ -20,7 +20,7 @@ dev = [
     "black",
     "isort",
     "mypy",
-    "ruff",
+    "ruff>=0.9.5"
 ]
 
 [build-system]
@@ -28,8 +28,22 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.ruff]
-select = ["E", "F", "B", "I"]
 line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+]
+
+# Ignore long lines in generated ANTLR files
+[tool.ruff.lint.per-file-ignores]
+"sequence_rules/dsl/SequenceRuleLexer.py" = ["E501"]
+"sequence_rules/dsl/SequenceRuleParser.py" = ["E501"]
+"sequence_rules/dsl/SequenceRuleVisitor.py" = ["E501"]
 
 [tool.black]
 line-length = 100
