@@ -5,7 +5,7 @@ description = "A robust framework for sequence rule generation and evaluation"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "antlr4-python3-runtime", # For DSL parsing
+    "antlr4-python3-runtime==4.9.3", # For DSL parsing
     "sympy", # For rule normalization
     "networkx", # For automata/FSM
     "z3-solver", # For constraint solving

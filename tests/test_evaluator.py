@@ -3,7 +3,7 @@ from sequence_rules.core.evaluator import (
     evaluate_expression,
     evaluate_sequence,
 )
-from sequence_rules.dsl.ast import (
+from sequence_rules.dsl.sequence_ast import (
     AbsolutePosition,
     BooleanValue,
     Condition,

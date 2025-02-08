@@ -1,7 +1,6 @@
-# Generated from SequenceRule.g4 by ANTLR 4.13.2
-from antlr4.tree.Tree import ParseTreeVisitor
-
-if "." in __name__:
+# Generated from SequenceRule.g4 by ANTLR 4.9.3
+from antlr4 import *
+if __name__ is not None and "." in __name__:
     from .SequenceRuleParser import SequenceRuleParser
 else:
     from SequenceRuleParser import SequenceRuleParser
@@ -80,8 +79,8 @@ class SequenceRuleVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by SequenceRuleParser#property.
-    def visitProperty(self, ctx:SequenceRuleParser.PropertyContext):
+    # Visit a parse tree produced by SequenceRuleParser#prop.
+    def visitProp(self, ctx:SequenceRuleParser.PropContext):
         return self.visitChildren(ctx)
 
 

@@ -1,7 +1,7 @@
 grammar SequenceRule;
 
 // Parser Rules
-rule
+seq_rule
     : sequence                                    # SimpleRule
     | IF condition THEN sequence (ELSE sequence)? # ConditionalRule
     ;
@@ -30,10 +30,10 @@ condition
     ;
 
 expression
-    : property relOp value                      # ComparisonExpression
+    : prop relOp value                      # ComparisonExpression
     ;
 
-property
+prop
     : IDENTIFIER (AT number)?
     ;
 
@@ -45,7 +45,7 @@ value
     : number                                    # NumericValue
     | BOOLEAN                                   # BooleanValue
     | STRING                                    # StringValue
-    | property                                  # PropertyValue
+    | prop                                      # PropertyValue
     ;
 
 // Lexer Rules

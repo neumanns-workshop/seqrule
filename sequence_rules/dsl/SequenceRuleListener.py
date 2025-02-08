@@ -1,7 +1,6 @@
-# Generated from SequenceRule.g4 by ANTLR 4.13.2
-from antlr4.tree.Tree import ParseTreeListener
-
-if "." in __name__:
+# Generated from SequenceRule.g4 by ANTLR 4.9.3
+from antlr4 import *
+if __name__ is not None and "." in __name__:
     from .SequenceRuleParser import SequenceRuleParser
 else:
     from SequenceRuleParser import SequenceRuleParser
@@ -135,12 +134,12 @@ class SequenceRuleListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by SequenceRuleParser#property.
-    def enterProperty(self, ctx:SequenceRuleParser.PropertyContext):
+    # Enter a parse tree produced by SequenceRuleParser#prop.
+    def enterProp(self, ctx:SequenceRuleParser.PropContext):
         pass
 
-    # Exit a parse tree produced by SequenceRuleParser#property.
-    def exitProperty(self, ctx:SequenceRuleParser.PropertyContext):
+    # Exit a parse tree produced by SequenceRuleParser#prop.
+    def exitProp(self, ctx:SequenceRuleParser.PropContext):
         pass
 
 

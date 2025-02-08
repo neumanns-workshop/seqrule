@@ -1,6 +1,6 @@
 from typing import Any, Dict, List, Optional
 
-from ..dsl.ast import (
+from ..dsl.sequence_ast import (
     AbsolutePosition,
     BooleanValue,
     Condition,
