@@ -30,14 +30,21 @@ source .venv/bin/activate  # On Unix
 uv pip install -e ".[dev]"
 ```
 
-6. Install ANTLR4 tools and generate parser:
+6. Set up ANTLR4:
 ```bash
 # Install ANTLR tools
 uv pip install antlr4-tools
 
+# Download specific ANTLR4 JAR version (required for compatibility)
+cd sequence_rules/dsl
+curl -O https://www.antlr.org/download/antlr-4.9.3-complete.jar
+
 # Generate Python parser
-cd sequence_rules/dsl && antlr4 -Dlanguage=Python3 -visitor SequenceRule.g4
+antlr4 -Dlanguage=Python3 -visitor SequenceRule.g4
+cd ../..
 ```
+
+Note: The specific version of ANTLR4 (4.9.3) is required to match the runtime version used in the project.
 
 ## Usage
 
