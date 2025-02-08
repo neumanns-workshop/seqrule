@@ -2,7 +2,7 @@ from typing import Union
 
 from antlr4 import CommonTokenStream, InputStream, error
 
-from .ast import (
+from .sequence_ast import (
     AbsolutePosition,
     BooleanValue,
     Condition,
@@ -183,10 +183,10 @@ class RuleVisitor(SequenceRuleVisitor):
         return Condition(left=left, operator=LogicalOp.OR, right=right)
 
     def visitComparisonExpression(self, ctx) -> Expression:  # pragma: no cover
-        identifier = ctx.property_().IDENTIFIER().getText()
+        identifier = ctx.prop().IDENTIFIER().getText()
         position = None
-        if ctx.property_().number():
-            number = int(ctx.property_().number().NUMBER().getText())
+        if ctx.prop().number():
+            number = int(ctx.prop().number().NUMBER().getText())
             if number < 0:
                 raise RuleParseError("Absolute position must be non-negative", 1, 0)
             position = AbsolutePosition(index=number)
@@ -206,10 +206,10 @@ class RuleVisitor(SequenceRuleVisitor):
         return StringValue(text[1:-1])
 
     def visitPropertyValue(self, ctx) -> PropertyValue:  # pragma: no cover
-        identifier = ctx.property_().IDENTIFIER().getText()
+        identifier = ctx.prop().IDENTIFIER().getText()
         position = None
-        if ctx.property_().number():
-            number = int(ctx.property_().number().NUMBER().getText())
+        if ctx.prop().number():
+            number = int(ctx.prop().number().NUMBER().getText())
             if number < 0:
                 raise RuleParseError("Absolute position must be non-negative", 1, 0)
             position = AbsolutePosition(index=number)
@@ -244,7 +244,7 @@ def parse_rule(rule_text: str) -> Rule:
     parser.addErrorListener(ErrorListener())
     
     try:
-        tree = parser.rule_()
+        tree = parser.seq_rule()
         visitor = RuleVisitor()
         rule = visitor.visit(tree)
         

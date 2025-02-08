@@ -1,6 +1,6 @@
 import pytest
 
-from sequence_rules.dsl.ast import (
+from sequence_rules.dsl.sequence_ast import (
     AbsolutePosition,
     ConditionalRule,
     LogicalOp,
