@@ -1,6 +1,6 @@
 # seqrule
 
-[![codecov](https://codecov.io/gh/neumanns-workshop/seqrule/graph/badge.svg)](https://codecov.io/gh/neumanns-workshop/seqrule)
+[![codecov](https://codecov.io/gh/neumanns-workshop/seqrule/branch/develop/graph/badge.svg)](https://codecov.io/gh/neumanns-workshop/seqrule)
 
 A Python library for defining and generating rules to validate sequences of objects. It provides both a programmatic API and a REST API for creating, evaluating, and analyzing sequence validation rules.
 

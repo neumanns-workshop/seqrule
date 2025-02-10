@@ -30,4 +30,9 @@ jobs:
         
     - name: Run tests with coverage
       run: |
-        pytest --cov=src/seqrule --cov-report=xml 
+        pytest --cov=src/seqrule --cov-report=xml
+        
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        files: ./coverage.xml 
