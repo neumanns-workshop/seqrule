@@ -118,7 +118,7 @@ async def test_evaluate_sequence_with_validation_error():
     """Test evaluate_sequence when validation fails."""
     class MockRule:
         def evaluate(self, objects):
-            return False, "Validation failed: invalid input"
+            raise ValueError("Validation failed: invalid input")
 
         def build(self):
             return self

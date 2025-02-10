@@ -120,12 +120,16 @@ class Rule:
 
         Returns:
             bool: True if sequence matches rule conditions and order
+            or tuple: (bool, str) for validation results with messages
         """
         result = self._rule_func(sequence)
         # Handle both tuple returns (result, message) and direct boolean returns
         if isinstance(result, tuple):
-            return result[0]
-        return result
+            success, message = result
+            if not success:
+                raise ValueError(message)
+            return True
+        return bool(result)
 
     def batch_evaluate(self, sequences):
         """Evaluate multiple sequences against this rule.

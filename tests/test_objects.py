@@ -1,6 +1,6 @@
 import pytest
 
-from seqrule import Object, RuleBuilder
+from seqrule import Object, Rule, RuleBuilder
 
 
 def test_object_creation():
@@ -214,3 +214,21 @@ def test_rule_batch_evaluate_empty():
 
     results = rule.batch_evaluate([])
     assert len(results) == 0
+
+
+def test_rule_evaluate_with_tuple_result():
+    """Test rule evaluation when rule function returns a tuple."""
+    # Test failing case
+    def mock_rule_func(sequence):
+        return (False, "Validation error")
+
+    rule = Rule(mock_rule_func, [], [])
+    with pytest.raises(ValueError, match="Validation error"):
+        rule.evaluate([])
+
+    # Test successful case
+    def mock_success_func(sequence):
+        return (True, "Success")
+
+    rule = Rule(mock_success_func, [], [])
+    assert rule.evaluate([]) is True
