@@ -30,12 +30,4 @@ jobs:
         
     - name: Run tests with coverage
       run: |
-        pytest --cov=src/seqrule --cov-report=xml
-        
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v3
-      env:
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      with:
-        files: ./coverage.xml
-        fail_ci_if_error: true 
+        pytest --cov=src/seqrule --cov-report=xml 
