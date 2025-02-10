@@ -183,6 +183,18 @@ async def evaluate_sequence(
                     detail=f"Invalid condition: {error}"
                 )
 
+        # Validate object properties - ensure all values are primitive types
+        for obj in evaluate_request.objects:
+            for key, value in obj.properties.items():
+                if not isinstance(value, (str, int, float, bool, type(None))):
+                    raise HTTPException(
+                        status_code=422,
+                        detail=(
+                            f"Invalid property value for {key}: "
+                            "must be a primitive type"
+                        )
+                    )
+
         # Build rule
         builder = RuleBuilder()
         for condition in rule_request.conditions:
@@ -220,8 +232,24 @@ async def evaluate_sequence(
             ) from e
 
         # Evaluate
-        result = rule.evaluate(objects)
-        return {"matches": bool(result)}
+        try:
+            result = rule.evaluate(objects)
+            if isinstance(result, tuple):
+                success, message = result
+                if not success:
+                    raise HTTPException(
+                        status_code=422,
+                        detail=f"Validation failed: {message}"
+                    )
+                return {"matches": True}
+            return {"matches": bool(result)}
+        except HTTPException:
+            raise
+        except Exception as e:
+            raise HTTPException(
+                status_code=422,
+                detail=f"Validation error: {str(e)}"
+            ) from e
 
     except HTTPException:
         raise
