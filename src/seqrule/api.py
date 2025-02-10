@@ -231,11 +231,6 @@ async def evaluate_sequence(
 
         # Evaluate
         result = rule.evaluate(objects)
-        if isinstance(result, tuple):
-            result, error = result
-            if error:
-                raise HTTPException(status_code=422, detail=str(error))
-
         return {"matches": bool(result)}
 
     except HTTPException:

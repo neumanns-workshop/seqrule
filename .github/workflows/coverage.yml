@@ -20,19 +20,15 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -e ".[dev,api]"
-        pip install coverage-badge
+        pip install -e ".[dev]"
         
     - name: Run tests with coverage
       run: |
-        coverage run -m pytest
-        coverage report
-        coverage-badge -o coverage.svg -f
+        pytest --cov=src/seqrule --cov-report=xml
         
-    - name: Update coverage badge
-      if: github.event_name == 'push'
-      uses: stefanzweifel/git-auto-commit-action@v5
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v4
       with:
-        commit_message: "docs: update coverage badge"
-        file_pattern: "coverage.svg"
-        branch: ${{ github.ref_name }} 
+        token: ${{ secrets.CODECOV_TOKEN }}
+        file: ./coverage.xml
+        fail_ci_if_error: true 

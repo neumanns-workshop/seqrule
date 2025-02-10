@@ -60,6 +60,7 @@ from .objects import Object
 
 __version__ = "1.0.0"
 
+
 class RuleBuilder:
     """Builder for creating sequence validation rules."""
 
@@ -102,6 +103,7 @@ class RuleBuilder:
             self.sequence_constraints
         )
 
+
 class Rule:
     """A compiled sequence validation rule."""
 
@@ -119,7 +121,8 @@ class Rule:
         Returns:
             bool: True if sequence matches rule conditions and order
         """
-        return self._rule_func(sequence), sequence
+        result, _ = self._rule_func(sequence)
+        return result
 
     def batch_evaluate(self, sequences):
         """Evaluate multiple sequences against this rule.
@@ -165,6 +168,7 @@ class Rule:
             test_sequences,
             runs=runs
         )
+
 
 __all__ = [
     "Object",
