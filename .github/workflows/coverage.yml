@@ -9,8 +9,14 @@ on:
 jobs:
   coverage:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    
     steps:
     - uses: actions/checkout@v4
+      with:
+        fetch-depth: 2
     
     - name: Set up Python
       uses: actions/setup-python@v5
@@ -27,8 +33,10 @@ jobs:
         pytest --cov=src/seqrule --cov-report=xml
         
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v4
+      uses: codecov/codecov-action@v3
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       with:
-        token: ${{ secrets.CODECOV_TOKEN }}
-        file: ./coverage.xml
-        fail_ci_if_error: true 
+        files: ./coverage.xml
+        fail_ci_if_error: true
+        verbose: true 
