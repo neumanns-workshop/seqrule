@@ -5,33 +5,39 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.0.1] - Unreleased
+## [Unreleased]
 
 ### Added
-- Core DSL implementation:
-  - ANTLR4-based grammar for sequence rules
-  - Support for simple sequences (e.g., "heart -> spade")
-  - Support for absolute positions (e.g., "ace@0 king@2")
-  - Property value comparisons with operators (=, !=, <, >, <=, >=)
-  - Conditional rules with if/then/else branches
-  - Logical operators (AND, OR)
-  - Element constraints (e.g., "heart(rank = 7)")
-- Robust parser with error handling:
-  - Detailed error messages with line/column information
-  - Validation for positions and constraints
-  - Proper handling of string literals and parentheses
-- Evaluator implementation:
-  - Support for evaluating simple sequences
-  - Property value comparison and type conversion
-  - Position-aware evaluation
-  - Conditional rule branching
-  - Constraint checking
-- Testing infrastructure:
-  - Comprehensive test suite with 74% coverage
-  - Integration with GitHub Actions and Codecov
-  - Test cases for parsing, evaluation, and error handling
-- Added ruff for fast Python linting and code style enforcement
-- Added GitHub Actions workflow for automated testing and linting
+- Initial release of the seqrule library
+- Fluent builder pattern for creating sequence validation rules
+- Support for multiple validation operators:
+  - Comparison: `=`, `!=`, `<`, `>`, `<=`, `>=`
+  - Collection: `in`, `not in`
+  - Existence: `exists`, `not exists`
+  - Custom predicates with sequence context (prev, next, index)
+- Sequence order validation with strict ordering
+- Rule complexity analysis with multiple models:
+  - Weighted
+  - Entropy-based
+  - Log-scaled
+  - Normalized
+- Performance profiling with memory tracking
+- FastAPI-based REST API with comprehensive validation
+- Extensive test coverage with API-specific test suites
+- Support for special values (None, infinity, empty strings)
+- Robust error handling and logging
+- Comprehensive example applications:
+  - DNA sequence validation
+  - Chess move validation
+  - Chord progression validation
+  - Eleusis card game rules
+  - Turkish phonology
+  - Recipe validation with API
 
 ### Changed
-- Updated development documentation in README.md with code quality tools 
+- Set line length limit to 99 characters
+- Updated linting configuration to use ruff
+
+### Fixed
+- Whitespace and formatting issues across multiple files
+- Exception handling in example code 

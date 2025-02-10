@@ -26,25 +26,41 @@ wheels/
 env/
 venv/
 ENV/
-
-# Coverage
-.coverage
-coverage.xml
-htmlcov/
+env.bak/
+venv.bak/
 
 # IDE
 .idea/
 .vscode/
 *.swp
 *.swo
+*~
 
-# ANTLR
-.antlr/
-*.interp
-*.tokens
-
-# Misc
-.DS_Store
+# Testing
+.coverage
+coverage.xml
+*.cover
+.hypothesis/
 .pytest_cache/
-.ruff_cache/
-.mypy_cache/ 
+htmlcov/
+
+# Distribution
+*.tar.gz
+*.whl
+
+# Documentation
+docs/_build/
+site/
+
+# Logs
+*.log
+logs/
+
+# Local development
+.python-version
+.env.local
+.env.*.local
+
+# OS specific
+.DS_Store
+Thumbs.db 
