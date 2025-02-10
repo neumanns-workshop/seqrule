@@ -1,54 +1,72 @@
+[build-system]
+requires = ["setuptools>=69.0.2"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name = "sequence-rules"
-version = "0.0.1"
-description = "A robust framework for sequence rule generation and evaluation"
+name = "seqrule"
+version = "1.0.0"
+description = "A library for defining and generating rules to validate sequences of objects"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+license = {text = "MIT"}
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.8"
+keywords = ["sequence", "rules", "generation", "validation", "pattern matching", "objects"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
 dependencies = [
-    "antlr4-python3-runtime==4.9.3", # For DSL parsing
-    "sympy", # For rule normalization
-    "networkx", # For automata/FSM
-    "z3-solver", # For constraint solving
-    "scikit-learn", # For heuristics and scoring
-    "pyswip", # Python-Prolog bridge
+    "uvicorn>=0.33.0",
 ]
 
 [project.optional-dependencies]
+api = [
+    "fastapi>=0.104.0",
+    "uvicorn>=0.24.0",
+    "pydantic>=2.0.0",
+]
 dev = [
-    "pytest>=7.0",
-    "pytest-cov>=6.0.0",
-    "black",
-    "isort",
-    "mypy",
-    "ruff>=0.9.5"
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "ruff>=0.1.6",  # Replaces black, isort, and flake8
+    "mypy>=1.6.0",
+    "httpx>=0.26.0",  # For FastAPI testing
+    "pytest-asyncio>=0.23.0",  # For async test support
 ]
 
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+[project.urls]
+Homepage = "https://github.com/yourusername/seqrule"
+Repository = "https://github.com/yourusername/seqrule"
+Documentation = "https://seqrule.readthedocs.io"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["seqrule"]
 
 [tool.ruff]
-line-length = 100
-target-version = "py311"
-
-[tool.ruff.lint]
-select = [
+line-length = 99
+target-version = "py38"
+lint.select = [
     "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
     "F",   # pyflakes
     "I",   # isort
     "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
 ]
 
-# Ignore linting issues in generated ANTLR files
-[tool.ruff.lint.per-file-ignores]
-"sequence_rules/dsl/SequenceRuleLexer.py" = ["E501", "F403", "F405", "E711", "I001"]
-"sequence_rules/dsl/SequenceRuleParser.py" = ["E501", "F403", "F405", "E711", "I001"]
-"sequence_rules/dsl/SequenceRuleVisitor.py" = ["E501", "F403", "F405", "E711", "I001"]
-"sequence_rules/dsl/SequenceRuleListener.py" = ["E501", "F403", "F405", "E711", "I001"]
-
-[tool.black]
-line-length = 100
-
-[tool.pytest.ini_options]
-addopts = "--cov=sequence_rules --cov-report=term-missing"
-testpaths = ["tests"]
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
