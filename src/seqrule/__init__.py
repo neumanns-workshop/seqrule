@@ -121,7 +121,10 @@ class Rule:
         Returns:
             bool: True if sequence matches rule conditions and order
         """
-        result, _ = self._rule_func(sequence)
+        result = self._rule_func(sequence)
+        # Handle both tuple returns (result, message) and direct boolean returns
+        if isinstance(result, tuple):
+            return result[0]
         return result
 
     def batch_evaluate(self, sequences):

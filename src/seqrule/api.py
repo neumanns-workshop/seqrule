@@ -183,18 +183,6 @@ async def evaluate_sequence(
                     detail=f"Invalid condition: {error}"
                 )
 
-        # Validate object properties - ensure all values are JSON serializable
-        for obj in evaluate_request.objects:
-            for _key, value in obj.properties.items():
-                if not isinstance(value, (str, int, float, bool, type(None))):
-                    raise HTTPException(
-                        status_code=422,
-                        detail=(
-                            "Invalid object properties: values must be "
-                            "primitive types"
-                        )
-                    )
-
         # Build rule
         builder = RuleBuilder()
         for condition in rule_request.conditions:
@@ -214,8 +202,10 @@ async def evaluate_sequence(
         try:
             rule = builder.build()
         except Exception as e:
-            msg = f"Rule build failed: {str(e)}"
-            raise HTTPException(status_code=422, detail=msg) from e
+            raise HTTPException(
+                status_code=422,
+                detail=f"Rule build failed: {str(e)}"
+            ) from e
 
         # Convert request objects to Object instances
         try:
