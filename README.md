@@ -2,7 +2,7 @@
 
 [![coverage](.github/badges/coverage.svg)](https://github.com/neumanns-workshop/seqrule/actions/workflows/coverage.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
 A Python library for defining, generating, and validating rules for sequences of abstract objects. SeqRule provides a flexible framework that can be applied to various domains, with built-in support for:
 
