@@ -14,7 +14,7 @@ A Python library for defining, generating, and validating rules for sequences of
 
 ## Project Status
 
-SeqRule 1.0.0 has been released with all core functionality implemented and thoroughly tested. The library is ready for production use in the supported domains, with ongoing development focused on:
+SeqRule 1.0.0b1 (beta) has been released with all core functionality implemented and thoroughly tested. The library is ready for testing in the supported domains, with ongoing development focused on:
 
 - Enhanced visualization and debugging tools
 - Additional domain-specific rulesets
