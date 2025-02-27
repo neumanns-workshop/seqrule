@@ -5,39 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.0.0] - 2025-02-27
 
 ### Added
-- Initial release of the seqrule library
-- Fluent builder pattern for creating sequence validation rules
-- Support for multiple validation operators:
-  - Comparison: `=`, `!=`, `<`, `>`, `<=`, `>=`
-  - Collection: `in`, `not in`
-  - Existence: `exists`, `not exists`
-  - Custom predicates with sequence context (prev, next, index)
-- Sequence order validation with strict ordering
-- Rule complexity analysis with multiple models:
-  - Weighted
-  - Entropy-based
-  - Log-scaled
-  - Normalized
-- Performance profiling with memory tracking
-- FastAPI-based REST API with comprehensive validation
-- Extensive test coverage with API-specific test suites
-- Support for special values (None, infinity, empty strings)
-- Robust error handling and logging
-- Comprehensive example applications:
-  - DNA sequence validation
-  - Chess move validation
-  - Chord progression validation
-  - Eleusis card game rules
-  - Turkish phonology
-  - Recipe validation with API
+- Core framework for defining, generating, and validating rules for sequences
+- Enhanced complexity analysis with bottleneck detection
+- Property access analysis with nested property relationship tracking
+- LazyGenerator for memory-efficient sequence generation
+- ConstrainedGenerator with pattern matching and constraint functionality
+- DNA module enhancements: MethylationState, BaseType, and StructuralElement
+- Improved rule composition with more logical operators
+- Performance optimizations for large sequence processing
+- Domain-specific rule collections for DNA, tea processing, musical sequences, and card games
+- Comprehensive test suite with high coverage
 
 ### Changed
-- Set line length limit to 99 characters
-- Updated linting configuration to use ruff
+- Refactored rule analysis to provide more detailed feedback
+- Improved memory efficiency of sequence generators
+- Enhanced property access tracking
+- Optimized performance for large sequence processing
+- Expanded documentation with example usage patterns
 
 ### Fixed
-- Whitespace and formatting issues across multiple files
-- Exception handling in example code 
+- Edge cases in rule composition with complex logical operations
+- Memory leaks in sequence generation for large datasets
+- Performance bottlenecks in nested property access
