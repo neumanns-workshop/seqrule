@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "seqrule"
-version = "1.0.0"
+version = "1.0.0b1"
 description = "A library for defining, generating, and validating rules for sequences of objects"
 authors = [
     {name = "Jared Neumann", email = "jared@neumannsworkshop.com"}
