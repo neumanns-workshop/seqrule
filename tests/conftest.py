@@ -1,79 +1,60 @@
+"""
+Shared fixtures for the SeqRule test suite.
+
+This module provides fixtures that can be used across multiple test files.
+"""
+
 import pytest
+import os
+import sys
 
-from seqrule import Object
+# Add the root directory to the Python path so we can import from scripts/
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-
-@pytest.fixture
-def sample_sequence():
-    """Returns a sequence of test objects."""
-    return [
-        Object("heart", rank=7, suit="hearts"),
-        Object("spade", rank=10, suit="spades")
-    ]
+from seqrule import AbstractObject
 
 
 @pytest.fixture
-def complex_sequence():
-    """Returns a more complex sequence for thorough testing."""
+def basic_sequence():
+    """Create a basic sequence of abstract objects."""
     return [
-        Object("ace", rank=14, suit="hearts", value=1),
-        Object("king", rank=13, suit="spades", value=10),
-        Object("queen", rank=12, suit="diamonds", value=10)
+        AbstractObject(value=1, color="red", size="small"),
+        AbstractObject(value=2, color="blue", size="medium"),
+        AbstractObject(value=3, color="green", size="large"),
     ]
 
 
 @pytest.fixture
 def empty_sequence():
-    """Returns an empty sequence for edge case testing."""
+    """Create an empty sequence."""
     return []
 
 
 @pytest.fixture
-def single_object_sequence():
-    """Returns a sequence with just one object."""
-    return [Object("solo", rank=5, suit="clubs")]
-
-
-@pytest.fixture
-def sequence_with_missing_properties():
-    """Returns a sequence where objects have different/missing properties."""
+def nested_properties_sequence():
+    """Create a sequence with nested property structures."""
     return [
-        Object("first", rank=7),  # Missing suit
-        Object("second", suit="hearts"),  # Missing rank
-        Object("third", rank=9, suit="diamonds", extra="value")
+        AbstractObject(
+            value=1,
+            metadata={"type": "important", "priority": 1},
+            nested={"deep": {"value": 10}},
+        ),
+        AbstractObject(
+            value=2, metadata={"type": "normal", "priority": 2}, tags=["tag1", "tag2"]
+        ),
+        AbstractObject(
+            value=3,
+            metadata={"type": "important", "priority": 3},
+            nested={"deep": {"value": 30}},
+        ),
     ]
 
 
 @pytest.fixture
-def invalid_values_sequence():
-    """Returns a sequence with edge case property values."""
-    return [
-        Object("zero", rank=0, suit=""),  # Zero and empty string
-        Object("negative", rank=-1, value=-100),  # Negative values
-        Object("none", rank=None, suit=None),  # None values
-        Object("special", rank=float('inf'), suit="♠")  # Special values
-    ]
-
-
-@pytest.fixture
-def rich_object():
-    """Returns a test object with multiple properties."""
-    return Object(
-        "rich",
-        rank=10,
-        suit="spades",
-        value=25,
-        is_face_card=True,
-        color="black"
-    )
-
-
-@pytest.fixture
-def complex_conditions():
-    """Returns a set of complex test conditions."""
-    return [
-        ("rank", ">", 5),
-        ("suit", "in", ["hearts", "spades"]),
-        ("value", "exists", None),
-        ("is_face_card", "=", True)
-    ]
+def varying_size_sequences():
+    """Create sequences of different sizes for testing scalability."""
+    sequences = []
+    for size in [5, 10, 20]:
+        seq = [AbstractObject(value=i, index=i) for i in range(size)]
+        sequences.append(seq)
+    return sequences
