@@ -11,230 +11,6 @@
     "example_usage": "",
     "error": "Failed to analyze rule: Undefined variable in rule: e\nTraceback (most recent call last):\n  File \"/home/runner/work/seqrule/seqrule/src/seqrule/analysis/analyzer.py\", line 499, in analyze\n    raise AnalysisError(f\"Undefined variable in rule: {undefined_var}\")\nseqrule.analysis.base.AnalysisError: Undefined variable in rule: e\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/runner/work/seqrule/seqrule/scripts/analyze_rules.py\", line 482, in analyze_rule_generator\n    analysis = analyzer.analyze(example_rule)\n  File \"/home/runner/work/seqrule/seqrule/src/seqrule/analysis/analyzer.py\", line 608, in analyze\n    raise AnalysisError(f\"Failed to analyze rule: {str(e)}\") from e\nseqrule.analysis.base.AnalysisError: Failed to analyze rule: Undefined variable in rule: e\n",
     "scores": {
-      "raw_score": 22.25,
-      "normalized_score": 37.083333333333336,
-      "complexity_level": "ComplexityScore.SIMPLE",
-      "contributing_factors": {
-        "time_complexity": 25.0,
-        "space_complexity": 0.0,
-        "cyclomatic_complexity": 40.0,
-        "property_access_complexity": 0.0,
-        "ast_node_count": 60.0,
-        "bottleneck_count": 0.0
-      },
-      "recommendations": []
-    },
-    "size_time_correlation": null
-  },
-  {
-    "name": "create_meta_rule",
-    "signature": "(rules: List[seqrule.dsl.DSLRule], required_count: int) -> seqrule.dsl.DSLRule",
-    "description": "Creates a rule requiring a certain number of other rules to be satisfied.",
-    "complexity_analysis": {
-      "time_complexity": "O(n)",
-      "space_complexity": "O(1)",
-      "description": "contains 1 loops.",
-      "bottlenecks": [],
-      "ast_features": {
-        "total_loops": 1,
-        "nested_loops": 0,
-        "max_loop_depth": 0,
-        "comprehensions": 0,
-        "generator_expressions": 1,
-        "sorting_operation": false,
-        "binary_search": false,
-        "builds_result_list": false,
-        "has_exponential": false,
-        "has_factorial": false,
-        "loop_depths": "set()",
-        "loop_ranges": [],
-        "result_lists": []
-      },
-      "total_property_accesses": 0
-    },
-    "benchmarks": [
-      {
-        "sequence_size": 0,
-        "avg_time": 4.314720001730166e-05,
-        "std_dev": 1.3312977335051155e-05,
-        "peak_memory": 0.001537322998046875,
-        "gc_collections": 0
-      },
-      {
-        "sequence_size": 1,
-        "avg_time": 4.632699998410317e-05,
-        "std_dev": 1.4756185653553114e-05,
-        "peak_memory": 0.0023651123046875,
-        "gc_collections": 0
-      },
-      {
-        "sequence_size": 10,
-        "avg_time": 4.2996600006972586e-05,
-        "std_dev": 1.5740816119385764e-05,
-        "peak_memory": 0.0,
-        "gc_collections": 0
-      },
-      {
-        "sequence_size": 100,
-        "avg_time": 5.066100000021834e-05,
-        "std_dev": 1.5051520387696088e-05,
-        "peak_memory": 0.001155853271484375,
-        "gc_collections": 0
-      },
-      {
-        "sequence_size": 1000,
-        "avg_time": 3.932779999331615e-05,
-        "std_dev": 1.2881374686855597e-05,
-        "peak_memory": 0.0,
-        "gc_collections": 0
-      }
-    ],
-    "test_coverage": 1.0,
-    "properties_accessed": {},
-    "optimization_suggestions": [],
-    "example_usage": "From docstring:\n    any_two = create_meta_rule([rule1, rule2, rule3], 2)  # Any 2 must pass",
-    "error": null,
-    "scores": {
-      "raw_score": 30.63,
-      "normalized_score": 51.05,
-      "complexity_level": "ComplexityScore.MODERATE",
-      "contributing_factors": {
-        "time_complexity": 25.0,
-        "space_complexity": 0.0,
-        "cyclomatic_complexity": 60.0,
-        "property_access_complexity": 9.2,
-        "ast_node_count": 80.0,
-        "bottleneck_count": 0.0
-      },
-      "recommendations": [
-        "Simplify the rule by breaking it into smaller, more focused rules."
-      ]
-    },
-    "size_time_correlation": 0.3850974543279778
-  },
-  {
-    "name": "create_alternation_rule",
-    "signature": "(property_name: str) -> seqrule.dsl.DSLRule",
-    "description": "Creates a rule requiring alternating property values.",
-    "complexity_analysis": {
-      "time_complexity": "O(n)",
-      "space_complexity": "O(1)",
-      "description": "contains 1 loops.",
-      "bottlenecks": [],
-      "ast_features": {
-        "total_loops": 1,
-        "nested_loops": 0,
-        "max_loop_depth": 1,
-        "comprehensions": 0,
-        "generator_expressions": 0,
-        "sorting_operation": false,
-        "binary_search": false,
-        "builds_result_list": false,
-        "has_exponential": false,
-        "has_factorial": false,
-        "loop_depths": "{0}",
-        "loop_ranges": [
-          [
-            {
-              "left": {
-                "func": {
-                  "id": "len",
-                  "ctx": {},
-                  "lineno": 5,
-                  "col_offset": 19,
-                  "end_lineno": 5,
-                  "end_col_offset": 22
-                },
-                "args": [
-                  {
-                    "id": "seq",
-                    "ctx": {},
-                    "lineno": 5,
-                    "col_offset": 23,
-                    "end_lineno": 5,
-                    "end_col_offset": 26
-                  }
-                ],
-                "keywords": [],
-                "lineno": 5,
-                "col_offset": 19,
-                "end_lineno": 5,
-                "end_col_offset": 27
-              },
-              "op": {},
-              "right": {
-                "value": 1,
-                "kind": null,
-                "lineno": 5,
-                "col_offset": 30,
-                "end_lineno": 5,
-                "end_col_offset": 31
-              },
-              "lineno": 5,
-              "col_offset": 19,
-              "end_lineno": 5,
-              "end_col_offset": 31
-            }
-          ]
-        ],
-        "result_lists": []
-      },
-      "total_property_accesses": 2
-    },
-    "benchmarks": [
-      {
-        "sequence_size": 0,
-        "avg_time": 1.1573399990538747e-05,
-        "std_dev": 2.1444353043845296e-06,
-        "peak_memory": 0.0013275146484375,
-        "gc_collections": 0
-      },
-      {
-        "sequence_size": 1,
-        "avg_time": 1.41381999924306e-05,
-        "std_dev": 2.6482374774109162e-06,
-        "peak_memory": 0.0,
-        "gc_collections": 0
-      },
-      {
-        "sequence_size": 10,
-        "avg_time": 4.0658000000348696e-05,
-        "std_dev": 1.0913218509976667e-05,
-        "peak_memory": 0.00031280517578125,
-        "gc_collections": 0
-      },
-      {
-        "sequence_size": 100,
-        "avg_time": 0.0001114185999995243,
-        "std_dev": 9.866384643076357e-06,
-        "peak_memory": 0.0009918212890625,
-        "gc_collections": 0
-      },
-      {
-        "sequence_size": 1000,
-        "avg_time": 0.001264934200003154,
-        "std_dev": 0.0006573001423291532,
-        "peak_memory": 0.0,
-        "gc_collections": 6
-      }
-    ],
-    "test_coverage": 1.0,
-    "properties_accessed": {
-      "property_name": {
-        "access_count": 2,
-        "access_types": [
-          "PropertyAccessType.METHOD"
-        ],
-        "nested_properties": []
-      }
-    },
-    "optimization_suggestions": [
-      "Consider caching property lookups to avoid repeated access",
-      "Properties property_name are accessed frequently. Consider caching them."
-    ],
-    "example_usage": "From docstring:\n    alternating_colors = create_alternation_rule(\"color\")",
-    "error": null,
-    "scores": {
       "raw_score": 24.25,
       "normalized_score": 40.416666666666664,
       "complexity_level": "ComplexityScore.MODERATE",
@@ -250,7 +26,7 @@
         "Simplify the rule by breaking it into smaller, more focused rules."
       ]
     },
-    "size_time_correlation": 0.9999703864439702
+    "size_time_correlation": null
   },
   {
     "name": "create_historical_rule",
@@ -339,37 +115,37 @@
     "benchmarks": [
       {
         "sequence_size": 0,
-        "avg_time": 1.5052199989895598e-05,
-        "std_dev": 4.974112061376288e-06,
-        "peak_memory": 0.0,
+        "avg_time": 1.5438999992056778e-05,
+        "std_dev": 8.736321906349391e-06,
+        "peak_memory": 0.0022735595703125,
         "gc_collections": 0
       },
       {
         "sequence_size": 1,
-        "avg_time": 2.0646799987389387e-05,
-        "std_dev": 5.023727872427702e-06,
-        "peak_memory": 0.00109100341796875,
+        "avg_time": 1.791139999340885e-05,
+        "std_dev": 6.645682910027688e-06,
+        "peak_memory": 0.002162933349609375,
         "gc_collections": 0
       },
       {
         "sequence_size": 10,
-        "avg_time": 4.645679999839558e-05,
-        "std_dev": 3.123273540558257e-05,
-        "peak_memory": 0.00041961669921875,
+        "avg_time": 2.7545199986889202e-05,
+        "std_dev": 1.5799257048459953e-06,
+        "peak_memory": 0.000522613525390625,
         "gc_collections": 0
       },
       {
         "sequence_size": 100,
-        "avg_time": 0.00017039900000099807,
-        "std_dev": 7.671433197259844e-05,
-        "peak_memory": 0.0023345947265625,
+        "avg_time": 0.00014775579999195542,
+        "std_dev": 6.894332845268636e-05,
+        "peak_memory": 0.0009918212890625,
         "gc_collections": 0
       },
       {
         "sequence_size": 1000,
-        "avg_time": 0.0007853830000044582,
-        "std_dev": 3.5325152575934456e-05,
-        "peak_memory": 0.00290679931640625,
+        "avg_time": 0.0008152827999765577,
+        "std_dev": 7.163253771745172e-05,
+        "peak_memory": 0.00122833251953125,
         "gc_collections": 0
       }
     ],
@@ -377,6 +153,232 @@
     "properties_accessed": {},
     "optimization_suggestions": [],
     "example_usage": "From docstring:\n    def no_repeats(window): return len(set(obj[\"value\"] for obj in window)) == len(window)\n    unique_values = create_historical_rule(3, no_repeats)",
+    "error": null,
+    "scores": {
+      "raw_score": 9.0,
+      "normalized_score": 15.0,
+      "complexity_level": "ComplexityScore.TRIVIAL",
+      "contributing_factors": {
+        "time_complexity": 0.0,
+        "space_complexity": 0.0,
+        "cyclomatic_complexity": 20.0,
+        "property_access_complexity": 0.0,
+        "ast_node_count": 40.0,
+        "bottleneck_count": 0.0
+      },
+      "recommendations": [
+        "The rule is already well-optimized. No specific recommendations."
+      ]
+    },
+    "size_time_correlation": 0.9999618413606614
+  },
+  {
+    "name": "create_bounded_sequence_rule",
+    "signature": "(min_length: int, max_length: int, inner_rule: seqrule.dsl.DSLRule) -> seqrule.dsl.DSLRule",
+    "description": "Creates a rule that combines length constraints with another rule.",
+    "complexity_analysis": {
+      "time_complexity": "O(1)",
+      "space_complexity": "O(1)",
+      "description": ".",
+      "bottlenecks": [],
+      "ast_features": {
+        "total_loops": 0,
+        "nested_loops": 0,
+        "max_loop_depth": 0,
+        "comprehensions": 0,
+        "generator_expressions": 0,
+        "sorting_operation": false,
+        "binary_search": false,
+        "builds_result_list": false,
+        "has_exponential": false,
+        "has_factorial": false,
+        "loop_depths": "set()",
+        "loop_ranges": [],
+        "result_lists": []
+      },
+      "total_property_accesses": 0
+    },
+    "benchmarks": [
+      {
+        "sequence_size": 0,
+        "avg_time": 1.534240001319631e-05,
+        "std_dev": 3.4029949635073663e-06,
+        "peak_memory": 0.0,
+        "gc_collections": 0
+      },
+      {
+        "sequence_size": 1,
+        "avg_time": 3.137059998152836e-05,
+        "std_dev": 6.619071447306489e-06,
+        "peak_memory": 0.0,
+        "gc_collections": 0
+      },
+      {
+        "sequence_size": 10,
+        "avg_time": 3.707520000943987e-05,
+        "std_dev": 1.2201749718897636e-05,
+        "peak_memory": 0.0,
+        "gc_collections": 0
+      },
+      {
+        "sequence_size": 100,
+        "avg_time": 2.4283199991259607e-05,
+        "std_dev": 8.14055470261049e-06,
+        "peak_memory": 0.00031280517578125,
+        "gc_collections": 0
+      },
+      {
+        "sequence_size": 1000,
+        "avg_time": 2.215179999893735e-05,
+        "std_dev": 6.83631039303789e-06,
+        "peak_memory": 0.0,
+        "gc_collections": 0
+      }
+    ],
+    "test_coverage": 1.0,
+    "properties_accessed": {},
+    "optimization_suggestions": [],
+    "example_usage": "From docstring:\n    valid_sequence = create_bounded_sequence_rule(2, 5, pattern_rule)",
+    "error": null,
+    "scores": {
+      "raw_score": 30.63,
+      "normalized_score": 51.05,
+      "complexity_level": "ComplexityScore.MODERATE",
+      "contributing_factors": {
+        "time_complexity": 25.0,
+        "space_complexity": 0.0,
+        "cyclomatic_complexity": 60.0,
+        "property_access_complexity": 9.2,
+        "ast_node_count": 80.0,
+        "bottleneck_count": 0.0
+      },
+      "recommendations": [
+        "Simplify the rule by breaking it into smaller, more focused rules."
+      ]
+    },
+    "size_time_correlation": -0.4337039873455961
+  },
+  {
+    "name": "create_alternation_rule",
+    "signature": "(property_name: str) -> seqrule.dsl.DSLRule",
+    "description": "Creates a rule requiring alternating property values.",
+    "complexity_analysis": {
+      "time_complexity": "O(n)",
+      "space_complexity": "O(1)",
+      "description": "contains 1 loops.",
+      "bottlenecks": [],
+      "ast_features": {
+        "total_loops": 1,
+        "nested_loops": 0,
+        "max_loop_depth": 1,
+        "comprehensions": 0,
+        "generator_expressions": 0,
+        "sorting_operation": false,
+        "binary_search": false,
+        "builds_result_list": false,
+        "has_exponential": false,
+        "has_factorial": false,
+        "loop_depths": "{0}",
+        "loop_ranges": [
+          [
+            {
+              "left": {
+                "func": {
+                  "id": "len",
+                  "ctx": {},
+                  "lineno": 5,
+                  "col_offset": 19,
+                  "end_lineno": 5,
+                  "end_col_offset": 22
+                },
+                "args": [
+                  {
+                    "id": "seq",
+                    "ctx": {},
+                    "lineno": 5,
+                    "col_offset": 23,
+                    "end_lineno": 5,
+                    "end_col_offset": 26
+                  }
+                ],
+                "keywords": [],
+                "lineno": 5,
+                "col_offset": 19,
+                "end_lineno": 5,
+                "end_col_offset": 27
+              },
+              "op": {},
+              "right": {
+                "value": 1,
+                "kind": null,
+                "lineno": 5,
+                "col_offset": 30,
+                "end_lineno": 5,
+                "end_col_offset": 31
+              },
+              "lineno": 5,
+              "col_offset": 19,
+              "end_lineno": 5,
+              "end_col_offset": 31
+            }
+          ]
+        ],
+        "result_lists": []
+      },
+      "total_property_accesses": 2
+    },
+    "benchmarks": [
+      {
+        "sequence_size": 0,
+        "avg_time": 9.868199981610815e-06,
+        "std_dev": 3.3520490162291836e-06,
+        "peak_memory": 0.000377655029296875,
+        "gc_collections": 0
+      },
+      {
+        "sequence_size": 1,
+        "avg_time": 1.8061799983115635e-05,
+        "std_dev": 7.883082871133782e-06,
+        "peak_memory": 0.0,
+        "gc_collections": 0
+      },
+      {
+        "sequence_size": 10,
+        "avg_time": 3.884480000806434e-05,
+        "std_dev": 9.638508846390472e-06,
+        "peak_memory": 0.002056121826171875,
+        "gc_collections": 0
+      },
+      {
+        "sequence_size": 100,
+        "avg_time": 0.00011018960000228618,
+        "std_dev": 8.844441404346429e-06,
+        "peak_memory": 0.0009918212890625,
+        "gc_collections": 0
+      },
+      {
+        "sequence_size": 1000,
+        "avg_time": 0.0017460955999808903,
+        "std_dev": 0.0009694955647324467,
+        "peak_memory": 0.0,
+        "gc_collections": 0
+      }
+    ],
+    "test_coverage": 1.0,
+    "properties_accessed": {
+      "property_name": {
+        "access_count": 2,
+        "access_types": [
+          "PropertyAccessType.METHOD"
+        ],
+        "nested_properties": []
+      }
+    },
+    "optimization_suggestions": [
+      "Consider caching property lookups to avoid repeated access",
+      "Properties property_name are accessed frequently. Consider caching them."
+    ],
+    "example_usage": "From docstring:\n    alternating_colors = create_alternation_rule(\"color\")",
     "error": null,
     "scores": {
       "raw_score": 48.05,
@@ -396,7 +398,7 @@
         "Address identified bottlenecks to improve performance."
       ]
     },
-    "size_time_correlation": 0.9999475737751535
+    "size_time_correlation": 0.9999967635607572
   },
   {
     "name": "create_balanced_rule",
@@ -429,37 +431,37 @@
     "benchmarks": [
       {
         "sequence_size": 0,
-        "avg_time": 1.3573599994742836e-05,
-        "std_dev": 7.4798186932350956e-06,
-        "peak_memory": 0.000244140625,
+        "avg_time": 1.2214400010179816e-05,
+        "std_dev": 9.117166894379664e-07,
+        "peak_memory": 0.00115966796875,
         "gc_collections": 0
       },
       {
         "sequence_size": 1,
-        "avg_time": 3.340259999049522e-05,
-        "std_dev": 1.4591809700575768e-05,
-        "peak_memory": 0.000812530517578125,
+        "avg_time": 4.1220800005703496e-05,
+        "std_dev": 1.5270179936535864e-05,
+        "peak_memory": 0.002208709716796875,
         "gc_collections": 0
       },
       {
         "sequence_size": 10,
-        "avg_time": 8.005579999235125e-05,
-        "std_dev": 3.129401685471165e-05,
-        "peak_memory": 0.0,
+        "avg_time": 4.304459999957544e-05,
+        "std_dev": 3.271376810742472e-06,
+        "peak_memory": 0.000827789306640625,
         "gc_collections": 0
       },
       {
         "sequence_size": 100,
-        "avg_time": 0.0002569351999909486,
-        "std_dev": 0.00014960052707955768,
-        "peak_memory": 0.0,
+        "avg_time": 0.00021609120000221083,
+        "std_dev": 0.00014582591748693303,
+        "peak_memory": 0.002414703369140625,
         "gc_collections": 0
       },
       {
         "sequence_size": 1000,
-        "avg_time": 0.001748042000008354,
-        "std_dev": 0.001076919320590906,
-        "peak_memory": 0.000728607177734375,
+        "avg_time": 0.0024278096000216465,
+        "std_dev": 0.0014059635213468096,
+        "peak_memory": 0.0,
         "gc_collections": 0
       }
     ],
@@ -481,102 +483,6 @@
     "example_usage": "From docstring:\n    # Equal number of red and black cards (\u00b110%)\n    balanced_colors = create_balanced_rule(\"color\", {\n        \"red\": {\"red\"}, \"black\": {\"black\"}\n    })",
     "error": null,
     "scores": {
-      "raw_score": 30.54,
-      "normalized_score": 50.9,
-      "complexity_level": "ComplexityScore.MODERATE",
-      "contributing_factors": {
-        "time_complexity": 25.0,
-        "space_complexity": 0.0,
-        "cyclomatic_complexity": 60.0,
-        "property_access_complexity": 8.6,
-        "ast_node_count": 80.0,
-        "bottleneck_count": 0.0
-      },
-      "recommendations": [
-        "Simplify the rule by breaking it into smaller, more focused rules."
-      ]
-    },
-    "size_time_correlation": 0.9999961213738958
-  },
-  {
-    "name": "create_numerical_range_rule",
-    "signature": "(property_name: str, min_value: float, max_value: float) -> seqrule.dsl.DSLRule",
-    "description": "Creates a rule requiring numerical property values within a range.",
-    "complexity_analysis": {
-      "time_complexity": "O(n)",
-      "space_complexity": "O(1)",
-      "description": "contains 1 loops.",
-      "bottlenecks": [],
-      "ast_features": {
-        "total_loops": 1,
-        "nested_loops": 0,
-        "max_loop_depth": 1,
-        "comprehensions": 0,
-        "generator_expressions": 0,
-        "sorting_operation": false,
-        "binary_search": false,
-        "builds_result_list": false,
-        "has_exponential": false,
-        "has_factorial": false,
-        "loop_depths": "{0}",
-        "loop_ranges": [],
-        "result_lists": []
-      },
-      "total_property_accesses": 1
-    },
-    "benchmarks": [
-      {
-        "sequence_size": 0,
-        "avg_time": 1.0850399996797933e-05,
-        "std_dev": 4.757798522335156e-06,
-        "peak_memory": 0.00107574462890625,
-        "gc_collections": 0
-      },
-      {
-        "sequence_size": 1,
-        "avg_time": 2.0093799992082496e-05,
-        "std_dev": 5.556682239050715e-06,
-        "peak_memory": 0.00206756591796875,
-        "gc_collections": 0
-      },
-      {
-        "sequence_size": 10,
-        "avg_time": 2.400700001317091e-05,
-        "std_dev": 5.025486750375354e-06,
-        "peak_memory": 0.00103759765625,
-        "gc_collections": 0
-      },
-      {
-        "sequence_size": 100,
-        "avg_time": 2.1550600013142685e-05,
-        "std_dev": 5.754973246185306e-06,
-        "peak_memory": 0.0,
-        "gc_collections": 0
-      },
-      {
-        "sequence_size": 1000,
-        "avg_time": 2.0085799997104913e-05,
-        "std_dev": 6.845950227169548e-06,
-        "peak_memory": 0.06949806213378906,
-        "gc_collections": 0
-      }
-    ],
-    "test_coverage": 1.0,
-    "properties_accessed": {
-      "property_name": {
-        "access_count": 1,
-        "access_types": [
-          "PropertyAccessType.METHOD"
-        ],
-        "nested_properties": []
-      }
-    },
-    "optimization_suggestions": [
-      "Consider caching property lookups to avoid repeated access"
-    ],
-    "example_usage": "From docstring:\n    valid_temperature = create_numerical_range_rule(\"temperature\", 20, 30)",
-    "error": null,
-    "scores": {
       "raw_score": 24.25,
       "normalized_score": 40.416666666666664,
       "complexity_level": "ComplexityScore.MODERATE",
@@ -592,7 +498,7 @@
         "Simplify the rule by breaking it into smaller, more focused rules."
       ]
     },
-    "size_time_correlation": 0.49548891645033677
+    "size_time_correlation": 0.9999953974947933
   },
   {
     "name": "create_group_rule",
@@ -689,37 +595,37 @@
     "benchmarks": [
       {
         "sequence_size": 0,
-        "avg_time": 1.504800000020623e-05,
-        "std_dev": 6.297459641211571e-06,
+        "avg_time": 1.6530799996417045e-05,
+        "std_dev": 7.502715342795792e-06,
         "peak_memory": 0.0,
         "gc_collections": 0
       },
       {
         "sequence_size": 1,
-        "avg_time": 2.2396199995000643e-05,
-        "std_dev": 1.308365128756722e-05,
+        "avg_time": 1.4490999990357523e-05,
+        "std_dev": 3.535121157824935e-06,
         "peak_memory": 0.0,
         "gc_collections": 0
       },
       {
         "sequence_size": 10,
-        "avg_time": 4.384220000019923e-05,
-        "std_dev": 1.9721596986214684e-05,
-        "peak_memory": 0.00130462646484375,
+        "avg_time": 3.446619999749601e-05,
+        "std_dev": 1.1429697647029627e-05,
+        "peak_memory": 0.0029144287109375,
         "gc_collections": 0
       },
       {
         "sequence_size": 100,
-        "avg_time": 0.0001197159999833275,
-        "std_dev": 5.696771477537873e-05,
-        "peak_memory": 0.00235748291015625,
+        "avg_time": 0.0002047140000172476,
+        "std_dev": 9.798813428308598e-05,
+        "peak_memory": 0.0,
         "gc_collections": 0
       },
       {
         "sequence_size": 1000,
-        "avg_time": 0.0017946233999964535,
-        "std_dev": 0.001294997897324545,
-        "peak_memory": 0.0,
+        "avg_time": 0.001324322400012079,
+        "std_dev": 0.0011437247731597834,
+        "peak_memory": 0.013365745544433594,
         "gc_collections": 0
       }
     ],
@@ -727,6 +633,90 @@
     "properties_accessed": {},
     "optimization_suggestions": [],
     "example_usage": "From docstring:\n    def ascending(group):\n        return all(group[i][\"value\"] < group[i+1][\"value\"]\n                  for i in range(len(group)-1))\n    ascending_pairs = create_group_rule(2, ascending)",
+    "error": null,
+    "scores": {
+      "raw_score": 22.25,
+      "normalized_score": 37.083333333333336,
+      "complexity_level": "ComplexityScore.SIMPLE",
+      "contributing_factors": {
+        "time_complexity": 25.0,
+        "space_complexity": 0.0,
+        "cyclomatic_complexity": 40.0,
+        "property_access_complexity": 0.0,
+        "ast_node_count": 60.0,
+        "bottleneck_count": 0.0
+      },
+      "recommendations": []
+    },
+    "size_time_correlation": 0.999983258308954
+  },
+  {
+    "name": "create_meta_rule",
+    "signature": "(rules: List[seqrule.dsl.DSLRule], required_count: int) -> seqrule.dsl.DSLRule",
+    "description": "Creates a rule requiring a certain number of other rules to be satisfied.",
+    "complexity_analysis": {
+      "time_complexity": "O(n)",
+      "space_complexity": "O(1)",
+      "description": "contains 1 loops.",
+      "bottlenecks": [],
+      "ast_features": {
+        "total_loops": 1,
+        "nested_loops": 0,
+        "max_loop_depth": 0,
+        "comprehensions": 0,
+        "generator_expressions": 1,
+        "sorting_operation": false,
+        "binary_search": false,
+        "builds_result_list": false,
+        "has_exponential": false,
+        "has_factorial": false,
+        "loop_depths": "set()",
+        "loop_ranges": [],
+        "result_lists": []
+      },
+      "total_property_accesses": 0
+    },
+    "benchmarks": [
+      {
+        "sequence_size": 0,
+        "avg_time": 4.011060001403166e-05,
+        "std_dev": 1.776615863538651e-05,
+        "peak_memory": 0.001216888427734375,
+        "gc_collections": 0
+      },
+      {
+        "sequence_size": 1,
+        "avg_time": 4.691159998628791e-05,
+        "std_dev": 1.760715634692642e-05,
+        "peak_memory": 0.0,
+        "gc_collections": 0
+      },
+      {
+        "sequence_size": 10,
+        "avg_time": 6.87563999917984e-05,
+        "std_dev": 2.2934942702371132e-05,
+        "peak_memory": 0.0,
+        "gc_collections": 0
+      },
+      {
+        "sequence_size": 100,
+        "avg_time": 5.678399999169415e-05,
+        "std_dev": 1.9269629099422856e-05,
+        "peak_memory": 0.001262664794921875,
+        "gc_collections": 0
+      },
+      {
+        "sequence_size": 1000,
+        "avg_time": 5.331960001058178e-05,
+        "std_dev": 2.3921096052521727e-05,
+        "peak_memory": 0.0,
+        "gc_collections": 0
+      }
+    ],
+    "test_coverage": 1.0,
+    "properties_accessed": {},
+    "optimization_suggestions": [],
+    "example_usage": "From docstring:\n    any_two = create_meta_rule([rule1, rule2, rule3], 2)  # Any 2 must pass",
     "error": null,
     "scores": {
       "raw_score": 36.75,
@@ -745,7 +735,63 @@
         "Address identified bottlenecks to improve performance."
       ]
     },
-    "size_time_correlation": 0.9999925446065928
+    "size_time_correlation": 0.6407541756174128
+  },
+  {
+    "name": "create_running_stat_rule",
+    "signature": "(property_name: str, stat_func: Callable[[List[float]], float], min_value: float, max_value: float, window: int) -> seqrule.dsl.DSLRule",
+    "description": "Creates a rule checking a running statistic over a sliding window.",
+    "complexity_analysis": {},
+    "benchmarks": [],
+    "test_coverage": 0.0,
+    "properties_accessed": {},
+    "optimization_suggestions": [],
+    "example_usage": "",
+    "error": "Failed to analyze rule: Undefined variable in rule: ZeroDivisionError\nTraceback (most recent call last):\n  File \"/home/runner/work/seqrule/seqrule/src/seqrule/analysis/analyzer.py\", line 499, in analyze\n    raise AnalysisError(f\"Undefined variable in rule: {undefined_var}\")\nseqrule.analysis.base.AnalysisError: Undefined variable in rule: ZeroDivisionError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/runner/work/seqrule/seqrule/scripts/analyze_rules.py\", line 482, in analyze_rule_generator\n    analysis = analyzer.analyze(example_rule)\n  File \"/home/runner/work/seqrule/seqrule/src/seqrule/analysis/analyzer.py\", line 608, in analyze\n    raise AnalysisError(f\"Failed to analyze rule: {str(e)}\") from e\nseqrule.analysis.base.AnalysisError: Failed to analyze rule: Undefined variable in rule: ZeroDivisionError\n",
+    "scores": {
+      "raw_score": 30.54,
+      "normalized_score": 50.9,
+      "complexity_level": "ComplexityScore.MODERATE",
+      "contributing_factors": {
+        "time_complexity": 25.0,
+        "space_complexity": 0.0,
+        "cyclomatic_complexity": 60.0,
+        "property_access_complexity": 8.6,
+        "ast_node_count": 80.0,
+        "bottleneck_count": 0.0
+      },
+      "recommendations": [
+        "Simplify the rule by breaking it into smaller, more focused rules."
+      ]
+    },
+    "size_time_correlation": null
+  },
+  {
+    "name": "create_sum_rule",
+    "signature": "(property_name: str, target: float, tolerance: float = 0.001) -> seqrule.dsl.DSLRule",
+    "description": "Creates a rule requiring property values to sum to a target value.",
+    "complexity_analysis": {},
+    "benchmarks": [],
+    "test_coverage": 0.0,
+    "properties_accessed": {},
+    "optimization_suggestions": [],
+    "example_usage": "",
+    "error": "Failed to analyze rule: Undefined variable in rule: e\nTraceback (most recent call last):\n  File \"/home/runner/work/seqrule/seqrule/src/seqrule/analysis/analyzer.py\", line 499, in analyze\n    raise AnalysisError(f\"Undefined variable in rule: {undefined_var}\")\nseqrule.analysis.base.AnalysisError: Undefined variable in rule: e\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/runner/work/seqrule/seqrule/scripts/analyze_rules.py\", line 482, in analyze_rule_generator\n    analysis = analyzer.analyze(example_rule)\n  File \"/home/runner/work/seqrule/seqrule/src/seqrule/analysis/analyzer.py\", line 608, in analyze\n    raise AnalysisError(f\"Failed to analyze rule: {str(e)}\") from e\nseqrule.analysis.base.AnalysisError: Failed to analyze rule: Undefined variable in rule: e\n",
+    "scores": {
+      "raw_score": 19.32,
+      "normalized_score": 32.2,
+      "complexity_level": "ComplexityScore.SIMPLE",
+      "contributing_factors": {
+        "time_complexity": 25.0,
+        "space_complexity": 0.0,
+        "cyclomatic_complexity": 20.0,
+        "property_access_complexity": 13.8,
+        "ast_node_count": 60.0,
+        "bottleneck_count": 0.0
+      },
+      "recommendations": []
+    },
+    "size_time_correlation": null
   },
   {
     "name": "create_composite_rule",
@@ -787,37 +833,37 @@
     "benchmarks": [
       {
         "sequence_size": 0,
-        "avg_time": 3.604759999689122e-05,
-        "std_dev": 1.3338099564540853e-05,
-        "peak_memory": 0.001285552978515625,
+        "avg_time": 3.3606800002417e-05,
+        "std_dev": 1.4443755110789262e-05,
+        "peak_memory": 0.001102447509765625,
         "gc_collections": 0
       },
       {
         "sequence_size": 1,
-        "avg_time": 3.6708400011775665e-05,
-        "std_dev": 1.0915375336720674e-05,
-        "peak_memory": 0.0,
+        "avg_time": 4.19806000081735e-05,
+        "std_dev": 1.1976732404606334e-05,
+        "peak_memory": 0.00107574462890625,
         "gc_collections": 0
       },
       {
         "sequence_size": 10,
-        "avg_time": 3.407800001014039e-05,
-        "std_dev": 1.0818685256308122e-05,
-        "peak_memory": 0.001171112060546875,
+        "avg_time": 4.294419999268939e-05,
+        "std_dev": 1.3714838891179832e-05,
+        "peak_memory": 0.0,
         "gc_collections": 0
       },
       {
         "sequence_size": 100,
-        "avg_time": 4.9897600001713725e-05,
-        "std_dev": 1.2394578702145703e-05,
-        "peak_memory": 0.001132965087890625,
-        "gc_collections": 0
+        "avg_time": 3.089980001504955e-05,
+        "std_dev": 3.7360505355825807e-06,
+        "peak_memory": 0.0013523101806640625,
+        "gc_collections": 345
       },
       {
         "sequence_size": 1000,
-        "avg_time": 2.7040399993438767e-05,
-        "std_dev": 1.005380914666083e-05,
-        "peak_memory": 0.0181427001953125,
+        "avg_time": 3.4321999999065155e-05,
+        "std_dev": 1.1770879034949581e-05,
+        "peak_memory": 0.0,
         "gc_collections": 0
       }
     ],
@@ -827,92 +873,6 @@
       "High complexity bottlenecks identified: Memory usage from temporary collections"
     ],
     "example_usage": "From docstring:\n    all_rules = create_composite_rule([rule1, rule2], mode=\"all\")\n    any_rule = create_composite_rule([rule1, rule2], mode=\"any\")",
-    "error": null,
-    "scores": {
-      "raw_score": 9.0,
-      "normalized_score": 15.0,
-      "complexity_level": "ComplexityScore.TRIVIAL",
-      "contributing_factors": {
-        "time_complexity": 0.0,
-        "space_complexity": 0.0,
-        "cyclomatic_complexity": 20.0,
-        "property_access_complexity": 0.0,
-        "ast_node_count": 40.0,
-        "bottleneck_count": 0.0
-      },
-      "recommendations": [
-        "The rule is already well-optimized. No specific recommendations."
-      ]
-    },
-    "size_time_correlation": -0.43319902416992123
-  },
-  {
-    "name": "create_bounded_sequence_rule",
-    "signature": "(min_length: int, max_length: int, inner_rule: seqrule.dsl.DSLRule) -> seqrule.dsl.DSLRule",
-    "description": "Creates a rule that combines length constraints with another rule.",
-    "complexity_analysis": {
-      "time_complexity": "O(1)",
-      "space_complexity": "O(1)",
-      "description": ".",
-      "bottlenecks": [],
-      "ast_features": {
-        "total_loops": 0,
-        "nested_loops": 0,
-        "max_loop_depth": 0,
-        "comprehensions": 0,
-        "generator_expressions": 0,
-        "sorting_operation": false,
-        "binary_search": false,
-        "builds_result_list": false,
-        "has_exponential": false,
-        "has_factorial": false,
-        "loop_depths": "set()",
-        "loop_ranges": [],
-        "result_lists": []
-      },
-      "total_property_accesses": 0
-    },
-    "benchmarks": [
-      {
-        "sequence_size": 0,
-        "avg_time": 1.40924000220366e-05,
-        "std_dev": 4.045672343038684e-06,
-        "peak_memory": 0.00107574462890625,
-        "gc_collections": 0
-      },
-      {
-        "sequence_size": 1,
-        "avg_time": 3.1694999995579566e-05,
-        "std_dev": 1.0920560910961586e-05,
-        "peak_memory": 0.002166748046875,
-        "gc_collections": 0
-      },
-      {
-        "sequence_size": 10,
-        "avg_time": 3.61234000024524e-05,
-        "std_dev": 8.89285280794909e-06,
-        "peak_memory": 0.0,
-        "gc_collections": 0
-      },
-      {
-        "sequence_size": 100,
-        "avg_time": 1.5271000006578105e-05,
-        "std_dev": 2.96141022597505e-06,
-        "peak_memory": 0.0,
-        "gc_collections": 0
-      },
-      {
-        "sequence_size": 1000,
-        "avg_time": 1.2090200016245944e-05,
-        "std_dev": 3.486950716677128e-06,
-        "peak_memory": 0.00019073486328125,
-        "gc_collections": 0
-      }
-    ],
-    "test_coverage": 1.0,
-    "properties_accessed": {},
-    "optimization_suggestions": [],
-    "example_usage": "From docstring:\n    valid_sequence = create_bounded_sequence_rule(2, 5, pattern_rule)",
     "error": null,
     "scores": {
       "raw_score": 46.0,
@@ -932,19 +892,86 @@
         "Address identified bottlenecks to improve performance."
       ]
     },
-    "size_time_correlation": -0.3406781068457243
+    "size_time_correlation": -0.10118261089946544
   },
   {
-    "name": "create_running_stat_rule",
-    "signature": "(property_name: str, stat_func: Callable[[List[float]], float], min_value: float, max_value: float, window: int) -> seqrule.dsl.DSLRule",
-    "description": "Creates a rule checking a running statistic over a sliding window.",
-    "complexity_analysis": {},
-    "benchmarks": [],
-    "test_coverage": 0.0,
-    "properties_accessed": {},
-    "optimization_suggestions": [],
-    "example_usage": "",
-    "error": "Failed to analyze rule: Undefined variable in rule: ZeroDivisionError\nTraceback (most recent call last):\n  File \"/home/runner/work/seqrule/seqrule/src/seqrule/analysis/analyzer.py\", line 499, in analyze\n    raise AnalysisError(f\"Undefined variable in rule: {undefined_var}\")\nseqrule.analysis.base.AnalysisError: Undefined variable in rule: ZeroDivisionError\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/runner/work/seqrule/seqrule/scripts/analyze_rules.py\", line 482, in analyze_rule_generator\n    analysis = analyzer.analyze(example_rule)\n  File \"/home/runner/work/seqrule/seqrule/src/seqrule/analysis/analyzer.py\", line 608, in analyze\n    raise AnalysisError(f\"Failed to analyze rule: {str(e)}\") from e\nseqrule.analysis.base.AnalysisError: Failed to analyze rule: Undefined variable in rule: ZeroDivisionError\n",
+    "name": "create_numerical_range_rule",
+    "signature": "(property_name: str, min_value: float, max_value: float) -> seqrule.dsl.DSLRule",
+    "description": "Creates a rule requiring numerical property values within a range.",
+    "complexity_analysis": {
+      "time_complexity": "O(n)",
+      "space_complexity": "O(1)",
+      "description": "contains 1 loops.",
+      "bottlenecks": [],
+      "ast_features": {
+        "total_loops": 1,
+        "nested_loops": 0,
+        "max_loop_depth": 1,
+        "comprehensions": 0,
+        "generator_expressions": 0,
+        "sorting_operation": false,
+        "binary_search": false,
+        "builds_result_list": false,
+        "has_exponential": false,
+        "has_factorial": false,
+        "loop_depths": "{0}",
+        "loop_ranges": [],
+        "result_lists": []
+      },
+      "total_property_accesses": 1
+    },
+    "benchmarks": [
+      {
+        "sequence_size": 0,
+        "avg_time": 1.5991800000847434e-05,
+        "std_dev": 6.722305678320185e-06,
+        "peak_memory": 0.0,
+        "gc_collections": 0
+      },
+      {
+        "sequence_size": 1,
+        "avg_time": 1.536659998464529e-05,
+        "std_dev": 1.6124442109044523e-06,
+        "peak_memory": 0.000213623046875,
+        "gc_collections": 0
+      },
+      {
+        "sequence_size": 10,
+        "avg_time": 3.08194000012918e-05,
+        "std_dev": 7.723816761569025e-06,
+        "peak_memory": 0.00118255615234375,
+        "gc_collections": 0
+      },
+      {
+        "sequence_size": 100,
+        "avg_time": 2.8781199978311635e-05,
+        "std_dev": 8.34262065876123e-06,
+        "peak_memory": 0.000213623046875,
+        "gc_collections": 32
+      },
+      {
+        "sequence_size": 1000,
+        "avg_time": 2.2788399996898077e-05,
+        "std_dev": 4.874516489827658e-06,
+        "peak_memory": 0.000377655029296875,
+        "gc_collections": 0
+      }
+    ],
+    "test_coverage": 1.0,
+    "properties_accessed": {
+      "property_name": {
+        "access_count": 1,
+        "access_types": [
+          "PropertyAccessType.METHOD"
+        ],
+        "nested_properties": []
+      }
+    },
+    "optimization_suggestions": [
+      "Consider caching property lookups to avoid repeated access"
+    ],
+    "example_usage": "From docstring:\n    valid_temperature = create_numerical_range_rule(\"temperature\", 20, 30)",
+    "error": null,
     "scores": {
       "raw_score": 45.550000000000004,
       "normalized_score": 75.91666666666667,
@@ -963,19 +990,89 @@
         "Address identified bottlenecks to improve performance."
       ]
     },
-    "size_time_correlation": null
+    "size_time_correlation": 0.3154548469489459
   },
   {
-    "name": "create_sum_rule",
-    "signature": "(property_name: str, target: float, tolerance: float = 0.001) -> seqrule.dsl.DSLRule",
-    "description": "Creates a rule requiring property values to sum to a target value.",
-    "complexity_analysis": {},
-    "benchmarks": [],
-    "test_coverage": 0.0,
-    "properties_accessed": {},
-    "optimization_suggestions": [],
-    "example_usage": "",
-    "error": "Failed to analyze rule: Undefined variable in rule: target\nTraceback (most recent call last):\n  File \"/home/runner/work/seqrule/seqrule/src/seqrule/analysis/analyzer.py\", line 499, in analyze\n    raise AnalysisError(f\"Undefined variable in rule: {undefined_var}\")\nseqrule.analysis.base.AnalysisError: Undefined variable in rule: target\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/runner/work/seqrule/seqrule/scripts/analyze_rules.py\", line 482, in analyze_rule_generator\n    analysis = analyzer.analyze(example_rule)\n  File \"/home/runner/work/seqrule/seqrule/src/seqrule/analysis/analyzer.py\", line 608, in analyze\n    raise AnalysisError(f\"Failed to analyze rule: {str(e)}\") from e\nseqrule.analysis.base.AnalysisError: Failed to analyze rule: Undefined variable in rule: target\n",
+    "name": "create_property_match_rule",
+    "signature": "(property_name: str, value: Any) -> seqrule.dsl.DSLRule",
+    "description": "Creates a rule requiring objects to have a specific property value.",
+    "complexity_analysis": {
+      "time_complexity": "O(n)",
+      "space_complexity": "O(1)",
+      "description": "contains 1 loops.",
+      "bottlenecks": [],
+      "ast_features": {
+        "total_loops": 1,
+        "nested_loops": 0,
+        "max_loop_depth": 0,
+        "comprehensions": 0,
+        "generator_expressions": 1,
+        "sorting_operation": false,
+        "binary_search": false,
+        "builds_result_list": false,
+        "has_exponential": false,
+        "has_factorial": false,
+        "loop_depths": "set()",
+        "loop_ranges": [],
+        "result_lists": []
+      },
+      "total_property_accesses": 3
+    },
+    "benchmarks": [
+      {
+        "sequence_size": 0,
+        "avg_time": 1.9229800011544283e-05,
+        "std_dev": 7.528558976062255e-06,
+        "peak_memory": 0.10164642333984375,
+        "gc_collections": 0
+      },
+      {
+        "sequence_size": 1,
+        "avg_time": 3.3522199987601195e-05,
+        "std_dev": 1.4345617767791035e-05,
+        "peak_memory": 0.07159709930419922,
+        "gc_collections": 0
+      },
+      {
+        "sequence_size": 10,
+        "avg_time": 3.5498199986250255e-05,
+        "std_dev": 1.3848529953996746e-05,
+        "peak_memory": 0.0,
+        "gc_collections": 0
+      },
+      {
+        "sequence_size": 100,
+        "avg_time": 3.2336200013105555e-05,
+        "std_dev": 9.25269735589913e-06,
+        "peak_memory": 0.0033721923828125,
+        "gc_collections": 0
+      },
+      {
+        "sequence_size": 1000,
+        "avg_time": 3.082559999256773e-05,
+        "std_dev": 1.230742623763648e-05,
+        "peak_memory": 0.0232696533203125,
+        "gc_collections": 0
+      }
+    ],
+    "test_coverage": 1.0,
+    "properties_accessed": {
+      "property_name": {
+        "access_count": 3,
+        "access_types": [
+          "PropertyAccessType.CONDITIONAL",
+          "PropertyAccessType.COMPARISON",
+          "PropertyAccessType.METHOD"
+        ],
+        "nested_properties": []
+      }
+    },
+    "optimization_suggestions": [
+      "Consider caching property lookups to avoid repeated access",
+      "Properties property_name are accessed frequently. Consider caching them."
+    ],
+    "example_usage": "From docstring:\n    color_is_red = create_property_match_rule(\"color\", \"red\")",
+    "error": null,
     "scores": {
       "raw_score": 39.33,
       "normalized_score": 65.55,
@@ -993,7 +1090,7 @@
         "Address identified bottlenecks to improve performance."
       ]
     },
-    "size_time_correlation": null
+    "size_time_correlation": 0.2942680002336033
   },
   {
     "name": "create_property_trend_rule",
@@ -1078,36 +1175,36 @@
     "benchmarks": [
       {
         "sequence_size": 0,
-        "avg_time": 1.1196799994195316e-05,
-        "std_dev": 2.40135288763509e-06,
-        "peak_memory": 0.02201080322265625,
-        "gc_collections": 7
+        "avg_time": 1.445660000172211e-05,
+        "std_dev": 7.356875733665425e-06,
+        "peak_memory": 0.0,
+        "gc_collections": 0
       },
       {
         "sequence_size": 1,
-        "avg_time": 1.4342800000122224e-05,
-        "std_dev": 5.970030708885488e-06,
-        "peak_memory": 0.00019073486328125,
-        "gc_collections": 21
+        "avg_time": 1.944839999623582e-05,
+        "std_dev": 4.156392057927686e-06,
+        "peak_memory": 0.0008392333984375,
+        "gc_collections": 0
       },
       {
         "sequence_size": 10,
-        "avg_time": 5.762780000395651e-05,
-        "std_dev": 2.6362739577327998e-05,
-        "peak_memory": 0.0,
+        "avg_time": 4.816360000177155e-05,
+        "std_dev": 1.040304269601946e-05,
+        "peak_memory": 0.000988006591796875,
         "gc_collections": 0
       },
       {
         "sequence_size": 100,
-        "avg_time": 0.0002644089999876087,
-        "std_dev": 5.006446235001005e-05,
-        "peak_memory": 0.0,
+        "avg_time": 0.00021080939999365,
+        "std_dev": 4.959715673735291e-05,
+        "peak_memory": 0.003719329833984375,
         "gc_collections": 0
       },
       {
         "sequence_size": 1000,
-        "avg_time": 0.0028346869999950285,
-        "std_dev": 0.0015490711000001056,
+        "avg_time": 0.002178906800008917,
+        "std_dev": 0.0014053555633897698,
         "peak_memory": 0.0,
         "gc_collections": 0
       }
@@ -1129,20 +1226,22 @@
     "example_usage": "From docstring:\n    # Values must strictly increase\n    increasing = create_property_trend_rule(\"value\", \"increasing\")\n    # Values must be non-increasing\n    non_increasing = create_property_trend_rule(\"value\", \"non-increasing\")",
     "error": null,
     "scores": {
-      "raw_score": 19.32,
-      "normalized_score": 32.2,
-      "complexity_level": "ComplexityScore.SIMPLE",
+      "raw_score": 30.6,
+      "normalized_score": 51.0,
+      "complexity_level": "ComplexityScore.MODERATE",
       "contributing_factors": {
         "time_complexity": 25.0,
         "space_complexity": 0.0,
-        "cyclomatic_complexity": 20.0,
-        "property_access_complexity": 13.8,
-        "ast_node_count": 60.0,
+        "cyclomatic_complexity": 60.0,
+        "property_access_complexity": 8.6,
+        "ast_node_count": 80.6,
         "bottleneck_count": 0.0
       },
-      "recommendations": []
+      "recommendations": [
+        "Simplify the rule by breaking it into smaller, more focused rules."
+      ]
     },
-    "size_time_correlation": 0.9999859492060332
+    "size_time_correlation": 0.9999499200450052
   },
   {
     "name": "create_ratio_rule",
@@ -1184,37 +1283,37 @@
     "benchmarks": [
       {
         "sequence_size": 0,
-        "avg_time": 1.3990200000080221e-05,
-        "std_dev": 7.364630391555964e-06,
-        "peak_memory": 0.00045013427734375,
+        "avg_time": 1.4274800003022392e-05,
+        "std_dev": 6.582007927897464e-06,
+        "peak_memory": 0.00019073486328125,
         "gc_collections": 0
       },
       {
         "sequence_size": 1,
-        "avg_time": 2.8056800010745066e-05,
-        "std_dev": 6.1679509615854755e-06,
-        "peak_memory": 0.0,
+        "avg_time": 4.31368000022303e-05,
+        "std_dev": 1.2253641472123227e-05,
+        "peak_memory": 0.002239227294921875,
         "gc_collections": 0
       },
       {
         "sequence_size": 10,
-        "avg_time": 6.006620000107432e-05,
-        "std_dev": 1.6259734055693676e-05,
+        "avg_time": 4.808200000070428e-05,
+        "std_dev": 1.3510614938864537e-05,
         "peak_memory": 0.0,
         "gc_collections": 0
       },
       {
         "sequence_size": 100,
-        "avg_time": 0.00015010720001100707,
-        "std_dev": 1.8492284095905575e-05,
-        "peak_memory": 0.0,
+        "avg_time": 0.00014267440001276556,
+        "std_dev": 1.9772907355456723e-05,
+        "peak_memory": 0.03159332275390625,
         "gc_collections": 0
       },
       {
         "sequence_size": 1000,
-        "avg_time": 0.001035834399988289,
-        "std_dev": 7.425381627766873e-05,
-        "peak_memory": 0.01100921630859375,
+        "avg_time": 0.0012005593999901976,
+        "std_dev": 0.00011349207453894968,
+        "peak_memory": 0.0114593505859375,
         "gc_collections": 0
       }
     ],
@@ -1223,9 +1322,9 @@
       "property_name": {
         "access_count": 8,
         "access_types": [
+          "PropertyAccessType.READ",
           "PropertyAccessType.CONDITIONAL",
-          "PropertyAccessType.COMPARISON",
-          "PropertyAccessType.READ"
+          "PropertyAccessType.COMPARISON"
         ],
         "nested_properties": []
       }
@@ -1238,22 +1337,23 @@
     "example_usage": "From docstring:\n    # At least 40% but no more than 60% GC content\n    gc_content = create_ratio_rule(\"base\", 0.4, 0.6, lambda obj: obj[\"base\"] in [\"G\", \"C\"])",
     "error": null,
     "scores": {
-      "raw_score": 30.6,
-      "normalized_score": 51.0,
-      "complexity_level": "ComplexityScore.MODERATE",
+      "raw_score": 39.4,
+      "normalized_score": 65.66666666666666,
+      "complexity_level": "ComplexityScore.COMPLEX",
       "contributing_factors": {
         "time_complexity": 25.0,
-        "space_complexity": 0.0,
+        "space_complexity": 30.0,
         "cyclomatic_complexity": 60.0,
         "property_access_complexity": 8.6,
-        "ast_node_count": 80.6,
-        "bottleneck_count": 0.0
+        "ast_node_count": 93.6,
+        "bottleneck_count": 30.0
       },
       "recommendations": [
-        "Simplify the rule by breaking it into smaller, more focused rules."
+        "Simplify the rule by breaking it into smaller, more focused rules.",
+        "Address identified bottlenecks to improve performance."
       ]
     },
-    "size_time_correlation": 0.9999582541751255
+    "size_time_correlation": 0.999938928483477
   },
   {
     "name": "create_pattern_rule",
@@ -1286,37 +1386,37 @@
     "benchmarks": [
       {
         "sequence_size": 0,
-        "avg_time": 1.4412799998808623e-05,
-        "std_dev": 7.235563537460033e-06,
-        "peak_memory": 0.07956409454345703,
+        "avg_time": 1.1379199997918477e-05,
+        "std_dev": 7.66329533659148e-06,
+        "peak_memory": 0.00045013427734375,
         "gc_collections": 0
       },
       {
         "sequence_size": 1,
-        "avg_time": 5.0888999999187946e-05,
-        "std_dev": 1.8391933744170695e-05,
-        "peak_memory": 0.000812530517578125,
+        "avg_time": 4.7296400009599895e-05,
+        "std_dev": 1.4892217246107597e-05,
+        "peak_memory": 0.0006866455078125,
         "gc_collections": 0
       },
       {
         "sequence_size": 10,
-        "avg_time": 4.892760000529961e-05,
-        "std_dev": 1.5134849770198594e-05,
-        "peak_memory": 0.005358695983886719,
+        "avg_time": 4.1102400007275716e-05,
+        "std_dev": 2.984368661474824e-06,
+        "peak_memory": 0.0,
         "gc_collections": 0
       },
       {
         "sequence_size": 100,
-        "avg_time": 0.00010795019998113275,
-        "std_dev": 3.119895509959748e-05,
-        "peak_memory": 0.009033203125,
+        "avg_time": 9.464439999646856e-05,
+        "std_dev": 2.492440219720737e-05,
+        "peak_memory": 0.0,
         "gc_collections": 0
       },
       {
         "sequence_size": 1000,
-        "avg_time": 0.0004287320000230466,
-        "std_dev": 3.877622758026919e-05,
-        "peak_memory": 0.025074005126953125,
+        "avg_time": 0.0004382773999964229,
+        "std_dev": 3.684960613030227e-05,
+        "peak_memory": 0.047924041748046875,
         "gc_collections": 0
       }
     ],
@@ -1339,106 +1439,6 @@
     "example_usage": "From docstring:\n    color_pattern = create_pattern_rule([\"red\", \"black\", \"red\"], \"color\")",
     "error": null,
     "scores": {
-      "raw_score": 39.4,
-      "normalized_score": 65.66666666666666,
-      "complexity_level": "ComplexityScore.COMPLEX",
-      "contributing_factors": {
-        "time_complexity": 25.0,
-        "space_complexity": 30.0,
-        "cyclomatic_complexity": 60.0,
-        "property_access_complexity": 8.6,
-        "ast_node_count": 93.6,
-        "bottleneck_count": 30.0
-      },
-      "recommendations": [
-        "Simplify the rule by breaking it into smaller, more focused rules.",
-        "Address identified bottlenecks to improve performance."
-      ]
-    },
-    "size_time_correlation": 0.999848239105098
-  },
-  {
-    "name": "create_property_match_rule",
-    "signature": "(property_name: str, value: Any) -> seqrule.dsl.DSLRule",
-    "description": "Creates a rule requiring objects to have a specific property value.",
-    "complexity_analysis": {
-      "time_complexity": "O(n)",
-      "space_complexity": "O(1)",
-      "description": "contains 1 loops.",
-      "bottlenecks": [],
-      "ast_features": {
-        "total_loops": 1,
-        "nested_loops": 0,
-        "max_loop_depth": 0,
-        "comprehensions": 0,
-        "generator_expressions": 1,
-        "sorting_operation": false,
-        "binary_search": false,
-        "builds_result_list": false,
-        "has_exponential": false,
-        "has_factorial": false,
-        "loop_depths": "set()",
-        "loop_ranges": [],
-        "result_lists": []
-      },
-      "total_property_accesses": 3
-    },
-    "benchmarks": [
-      {
-        "sequence_size": 0,
-        "avg_time": 1.8678799995086594e-05,
-        "std_dev": 8.326322892560577e-06,
-        "peak_memory": 0.0,
-        "gc_collections": 0
-      },
-      {
-        "sequence_size": 1,
-        "avg_time": 2.2900600015418604e-05,
-        "std_dev": 2.8024698461161705e-06,
-        "peak_memory": 0.0006561279296875,
-        "gc_collections": 0
-      },
-      {
-        "sequence_size": 10,
-        "avg_time": 2.918279998311846e-05,
-        "std_dev": 9.966378256667608e-06,
-        "peak_memory": 0.03197479248046875,
-        "gc_collections": 0
-      },
-      {
-        "sequence_size": 100,
-        "avg_time": 2.262240000163729e-05,
-        "std_dev": 3.4603441202282e-06,
-        "peak_memory": 0.0,
-        "gc_collections": 0
-      },
-      {
-        "sequence_size": 1000,
-        "avg_time": 2.789040000834575e-05,
-        "std_dev": 8.505115837151458e-06,
-        "peak_memory": 0.019378662109375,
-        "gc_collections": 0
-      }
-    ],
-    "test_coverage": 1.0,
-    "properties_accessed": {
-      "property_name": {
-        "access_count": 3,
-        "access_types": [
-          "PropertyAccessType.CONDITIONAL",
-          "PropertyAccessType.COMPARISON",
-          "PropertyAccessType.METHOD"
-        ],
-        "nested_properties": []
-      }
-    },
-    "optimization_suggestions": [
-      "Consider caching property lookups to avoid repeated access",
-      "Properties property_name are accessed frequently. Consider caching them."
-    ],
-    "example_usage": "From docstring:\n    color_is_red = create_property_match_rule(\"color\", \"red\")",
-    "error": null,
-    "scores": {
       "raw_score": 51.26,
       "normalized_score": 85.43333333333332,
       "complexity_level": "ComplexityScore.EXTREME",
@@ -1457,7 +1457,7 @@
         "Address identified bottlenecks to improve performance."
       ]
     },
-    "size_time_correlation": 0.47370827416576466
+    "size_time_correlation": 0.9922770550275579
   },
   {
     "name": "create_transition_rule",
@@ -1488,38 +1488,38 @@
     "benchmarks": [
       {
         "sequence_size": 0,
-        "avg_time": 1.608800000667543e-05,
-        "std_dev": 5.352463302138785e-06,
-        "peak_memory": 0.002391815185546875,
+        "avg_time": 1.6760999994858138e-05,
+        "std_dev": 4.487968943282164e-06,
+        "peak_memory": 0.07845687866210938,
         "gc_collections": 0
       },
       {
         "sequence_size": 1,
-        "avg_time": 1.4599399980852467e-05,
-        "std_dev": 2.9742691899749557e-06,
-        "peak_memory": 0.0,
+        "avg_time": 1.4158399994812499e-05,
+        "std_dev": 1.820764780095943e-06,
+        "peak_memory": 0.002254486083984375,
         "gc_collections": 0
       },
       {
         "sequence_size": 10,
-        "avg_time": 2.4900599987631723e-05,
-        "std_dev": 5.905846191303321e-06,
-        "peak_memory": 0.0046138763427734375,
+        "avg_time": 2.4143000007370575e-05,
+        "std_dev": 5.968224881497425e-06,
+        "peak_memory": 0.0,
         "gc_collections": 0
       },
       {
         "sequence_size": 100,
-        "avg_time": 6.594359997507127e-05,
-        "std_dev": 8.905486537147734e-06,
-        "peak_memory": 0.00902557373046875,
+        "avg_time": 8.126960000254257e-05,
+        "std_dev": 1.6242250419249052e-05,
+        "peak_memory": 0.014271736145019531,
         "gc_collections": 0
       },
       {
         "sequence_size": 1000,
-        "avg_time": 0.0004812304000097356,
-        "std_dev": 4.7314847869494226e-05,
-        "peak_memory": 0.0039539337158203125,
-        "gc_collections": 0
+        "avg_time": 0.0005095945999869401,
+        "std_dev": 2.4780640117166484e-05,
+        "peak_memory": 0.019992828369140625,
+        "gc_collections": 4
       }
     ],
     "test_coverage": 1.0,
@@ -1553,7 +1553,7 @@
         "Simplify the rule by breaking it into smaller, more focused rules."
       ]
     },
-    "size_time_correlation": 0.9999914829012264
+    "size_time_correlation": 0.9999631519963408
   },
   {
     "name": "create_unique_property_rule",
@@ -1638,36 +1638,36 @@
     "benchmarks": [
       {
         "sequence_size": 0,
-        "avg_time": 1.0491799991996232e-05,
-        "std_dev": 3.3083329165997837e-06,
-        "peak_memory": 0.0006561279296875,
+        "avg_time": 1.5072199994392577e-05,
+        "std_dev": 3.636283095594307e-06,
+        "peak_memory": 0.0006103515625,
         "gc_collections": 0
       },
       {
         "sequence_size": 1,
-        "avg_time": 3.431819998240826e-05,
-        "std_dev": 5.755228853243133e-06,
-        "peak_memory": 0.002071380615234375,
+        "avg_time": 2.423939998834612e-05,
+        "std_dev": 8.260732523548813e-06,
+        "peak_memory": 0.0,
         "gc_collections": 0
       },
       {
         "sequence_size": 10,
-        "avg_time": 3.555879999339595e-05,
-        "std_dev": 4.2439559114102166e-06,
-        "peak_memory": 0.00212860107421875,
+        "avg_time": 3.779019999683442e-05,
+        "std_dev": 1.2029491383509457e-05,
+        "peak_memory": 0.002044677734375,
         "gc_collections": 0
       },
       {
         "sequence_size": 100,
-        "avg_time": 9.848039999269532e-05,
-        "std_dev": 1.991705865556295e-05,
-        "peak_memory": 0.024372100830078125,
+        "avg_time": 0.0001318538000191438,
+        "std_dev": 1.7574893020936633e-05,
+        "peak_memory": 0.026409149169921875,
         "gc_collections": 0
       },
       {
         "sequence_size": 1000,
-        "avg_time": 0.0006637517999934061,
-        "std_dev": 3.802796298613868e-05,
+        "avg_time": 0.0006761191999999028,
+        "std_dev": 7.533555559835711e-05,
         "peak_memory": 0.048007965087890625,
         "gc_collections": 8
       }
@@ -1705,7 +1705,7 @@
         "Address identified bottlenecks to improve performance."
       ]
     },
-    "size_time_correlation": 0.999988549183459
+    "size_time_correlation": 0.998806641933888
   },
   {
     "name": "create_property_cycle_rule",
@@ -1747,36 +1747,36 @@
     "benchmarks": [
       {
         "sequence_size": 0,
-        "avg_time": 1.453080000146656e-05,
-        "std_dev": 6.9597874199460105e-06,
-        "peak_memory": 0.003459930419921875,
+        "avg_time": 1.518860000260247e-05,
+        "std_dev": 4.403968450171581e-06,
+        "peak_memory": 0.0,
         "gc_collections": 0
       },
       {
         "sequence_size": 1,
-        "avg_time": 3.198599999905127e-05,
-        "std_dev": 1.429102703448022e-05,
-        "peak_memory": 0.00075531005859375,
+        "avg_time": 3.0040200010716943e-05,
+        "std_dev": 8.181440568380344e-07,
+        "peak_memory": 0.000843048095703125,
         "gc_collections": 0
       },
       {
         "sequence_size": 10,
-        "avg_time": 5.3560199978619495e-05,
-        "std_dev": 2.4880608495504834e-05,
-        "peak_memory": 0.00138092041015625,
+        "avg_time": 5.846699998528493e-05,
+        "std_dev": 1.0614329949384311e-05,
+        "peak_memory": 0.0,
         "gc_collections": 0
       },
       {
         "sequence_size": 100,
-        "avg_time": 0.00030683799999451364,
-        "std_dev": 3.1143109562232736e-05,
+        "avg_time": 0.00032803000002559204,
+        "std_dev": 6.255676794893364e-05,
         "peak_memory": 0.0,
         "gc_collections": 0
       },
       {
         "sequence_size": 1000,
-        "avg_time": 0.188944761200014,
-        "std_dev": 0.2091497812121993,
+        "avg_time": 0.28201616100001276,
+        "std_dev": 0.3844377779154713,
         "peak_memory": 0.01726531982421875,
         "gc_collections": 0
       }
@@ -1808,6 +1808,6 @@
         "Address identified bottlenecks to improve performance."
       ]
     },
-    "size_time_correlation": 0.9954339983280386
+    "size_time_correlation": 0.9954363341881565
   }
 ]
