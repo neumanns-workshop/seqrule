@@ -47,8 +47,8 @@ scripts = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/seqrule"
-Repository = "https://github.com/yourusername/seqrule"
+Homepage = "https://github.com/neumanns-workshop/seqrule"
+Repository = "https://github.com/neumanns-workshop/seqrule"
 Documentation = "https://seqrule.readthedocs.io"
 
 [tool.hatch.build.targets.wheel]
